@@ -1,0 +1,18 @@
+.details-header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border-bottom: solid 1px darkslategray;
+}
+
+.details-header .icon {
+    margin-top: 0.25vh;
+    /* margin-left: 0.25vw;
+    height: 2vh; */
+}
+
+.details-header .label {
+    margin-left: 0.5vw;
+    font-size: 1.25rem;
+    font-weight: 700;
+}

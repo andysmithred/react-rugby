@@ -1,0 +1,12 @@
+.home-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-content-item {
+    display: flex;
+    flex-direction: row;
+    width: calc(100%/4);
+
+    border: 1px red solid;
+}

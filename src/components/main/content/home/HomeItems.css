@@ -1,0 +1,22 @@
+.home-items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: min-content;
+    padding-bottom: 1vh;
+    margin-top: 1vh;
+    border-bottom: solid 1px #ffffff;
+}
+
+.home-items .item {
+    width: calc(100%/5);
+}
+
+.home-items .loading {
+    font-size: 2rem;
+    font-weight: 700;
+    opacity: 0.5;
+    margin-top: 1.5vh;
+    width: calc(100%/4);
+}

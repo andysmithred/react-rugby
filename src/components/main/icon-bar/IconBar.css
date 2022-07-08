@@ -1,0 +1,6 @@
+.icon-bar {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /* border: solid 2px green; */
+}

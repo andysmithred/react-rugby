@@ -1,3 +1,10 @@
+# NOTES: ANDY
+
+When creating the React App you may get an error where the API does not work.
+This is a Cross Origin error -> Cors
+
+You need to enable cors in the web API side, see todoAPI and WebRugbyAPI
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
