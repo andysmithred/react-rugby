@@ -5,7 +5,7 @@ import "./FilterableContentList.css";
 
 const FilterableContentList = (props) => {
   return (
-    <div className="filterable-content-list">
+    <div className="d-flex flex-column filterable-content-list">
       <ContentSearchBar
         onFilterTextChange={props.onFilterTextChange}
         filter={props.filter}

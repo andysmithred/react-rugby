@@ -1,0 +1,14 @@
+.details-item {
+    padding: 1vh;
+    width: 100%;
+}
+
+.details-item .label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    opacity: 0.5;
+}
+
+.details-item .value {
+    font-size: 1.25rem;
+}

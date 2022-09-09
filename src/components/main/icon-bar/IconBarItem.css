@@ -12,10 +12,10 @@
     /* //margin-top: 1vh; */
 }
 
-/* .icon-bar-item .image {
-    margin-top: 0.5vh;
+.icon-bar-item .image {
     height: 20px;
-} */
+    width: 20px;
+}
 
 .icon-bar-item:hover {
     background-color: darkslategrey;

@@ -1,12 +1,11 @@
-import Icon from "../../../utils/Icon";
 import "./ContentHeader.css";
 
 const ContentHeader = ({ category }) => {
   return (
-    <div className="content-header">
-      <Icon icon={category.icon} style={{ color: "white", size: "40px" }} />
-      <div className="label">{category.name.toUpperCase()}</div>
-    </div>
+    <nav className="navbar navbar-expand-sm navbar-dark content-header">
+      <img src={category.icon} className="image" alt={category.name} />
+      <div className="mx-4 label">{category.name.toUpperCase()}</div>
+    </nav>
   );
 };
 

@@ -1,17 +1,16 @@
-import HomeItems from "./HomeItems";
-import HomeFeaturedItems from "./HomeFeaturedItems";
+import { useSelector } from "react-redux";
+import HomeItems from "./Items/HomeItems";
+import HomeFeaturedItems from "./FeaturedItems/HomeFeaturedItems";
+import ContentHeader from "../common/ContentHeader";
 
-import "./HomeContent.css";
 
 export const HomeContent = () => {
+  const category = useSelector(state => state.categories.items.find(c => c.name === "Home"))
   return (
-    <div className="home-content">
-      <div>
-        <HomeItems />
-      </div>
-      <div>
-        <HomeFeaturedItems />
-      </div>
+    <div className="d-flex flex-column">
+      <ContentHeader category={category} />
+      <HomeItems />
+      <HomeFeaturedItems />
     </div>
   );
 };

@@ -1,9 +1,5 @@
-
 .footer {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    margin: 1vh;
+    margin-top: auto;
     border-top: solid 1px #e9eae8;
 }
 
@@ -19,13 +15,3 @@
     width: 360px;
     height: 20px;
 }
-
-/* @keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-} */

@@ -1,0 +1,21 @@
+.list-tile .image {
+    height: 2vh;
+    width: 2vh;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.list-tile .title {
+    font-size: 1.25rem;
+}
+
+.list-tile .subtitle {
+    font-size: 0.75rem;
+    opacity: 0.5;
+}
+
+.list-tile:hover {
+    opacity: 0.5;
+    background-color: darkslategray;
+    cursor: pointer;
+}

@@ -1,31 +1,12 @@
 .app-logo {
-    height: 8vmin;
+    height: 5vmin;
     pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
     .app-logo {
-        animation: app-logo-spin infinite 10s linear;
+        animation: app-logo-spin infinite 15s linear;
     }
-}
-
-.app-header {
-    background-color: #282c34;
-    display: flex;
-    flex-direction: row;
-    margin: 1vh;
-    border-bottom: solid 1px #e9eae8;
-    font-size: 2rem;
-}
-
-.app-header .title {
-    padding-left: 1vw;
-    margin-top: 0.75vh;
-}
-
-.app-header .clock {
-    margin-left: auto;
-    margin-top: 0.75vh;
 }
 
 @keyframes app-logo-spin {
@@ -36,4 +17,13 @@
     to {
         transform: rotate(360deg);
     }
+}
+
+.app-header {
+    font-size: 2rem;
+    border-bottom: solid 1px whitesmoke;
+}
+
+.app-header .clock {
+    margin-left: auto;
 }

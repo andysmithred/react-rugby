@@ -1,0 +1,33 @@
+.home-featured-city .map {
+    height: 20vh;
+    border: solid 2px yellow;
+}
+
+.home-featured-city .details .half {
+     width: calc(100%/2);
+ }
+
+.featured-city-header .image {
+    height: 2.5vh;
+    width: 2.5vh;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 5px;
+    /* //opacity:0.4; */
+}
+
+.featured-city-header .title {
+    font-size: 1.25rem;
+}
+
+.featured-city-header .subtitle {
+    font-size: 0.75rem;
+    opacity: 0.5;
+}
+
+.featured-city-header:hover {
+    opacity: 0.5;
+    background-color: darkslategrey;
+    cursor: pointer;
+    border-radius: 0px;
+}

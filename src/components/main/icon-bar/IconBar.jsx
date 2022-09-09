@@ -27,7 +27,7 @@ const IconBar = () => {
     );
   });
 
-  return <div className="icon-bar">{iconBarItems}</div>;
+  return <div className="d-flex flex-column icon-bar">{iconBarItems}</div>;
 };
 
 export default IconBar;

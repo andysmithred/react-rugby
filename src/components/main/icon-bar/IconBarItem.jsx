@@ -1,9 +1,12 @@
-import Icon from "../../utils/Icon";
 import "./IconBarItem.css";
 
 const IconBarItem = ({ category, onIconBarItemClick }) => (
   <div className="icon-bar-item" onClick={() => onIconBarItemClick(category)}>
-    <Icon icon={category.icon} style={{ color: "white", size: "20px" }} />
+    <img
+      src={category.icon}
+      className="image mt-1"
+      alt={category.name}
+    />
   </div>
 );
 

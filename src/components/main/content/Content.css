@@ -1,16 +1,8 @@
 .content {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-left: 1vw;
-    margin-right: 1vw;
-    /* border: solid 2px yellow; */
+    border: solid 2px yellow;
 }
 
 .content-main {
-    display: flex;
-    flex-direction: row;
-    margin-top: 1vh;
-    height: 81vh;
+    height: 91.5vh;
     border: solid 2px green;
 }

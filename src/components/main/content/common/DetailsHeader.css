@@ -1,18 +1,22 @@
 .details-header {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+    /* width: 100%; */
     border-bottom: solid 1px darkslategray;
 }
 
-.details-header .icon {
-    margin-top: 0.25vh;
+/* .details-header .icon { */
+    /* height: 20px; */
+    /* margin-top: 0.25vh; */
     /* margin-left: 0.25vw;
     height: 2vh; */
+/* } */
+
+.details-header .image {
+    height: 20px;
+    width: 20px;
 }
 
 .details-header .label {
-    margin-left: 0.5vw;
+    /* margin-left: 0.5vw; */
     font-size: 1.25rem;
     font-weight: 700;
 }

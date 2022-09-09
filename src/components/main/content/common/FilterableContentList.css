@@ -1,6 +1,4 @@
 .filterable-content-list {
-    display: flex;
-    flex-direction: column;
     height: inherit;
     width: inherit;
 }

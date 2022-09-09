@@ -9,7 +9,7 @@ const ContentSearchBar = (props) => {
         <input
           type="text"
           value={filterText}
-          className="content-search-bar"
+          className="my-1 ps-1 content-search-bar"
           onChange={handleFilterTextChange}
           placeholder="Filter..."
         ></input>

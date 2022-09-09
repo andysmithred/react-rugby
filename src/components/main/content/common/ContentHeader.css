@@ -1,20 +1,14 @@
 .content-header {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    /* padding-left: 1vw; */
+    /* width: 100%; */
     border-bottom: solid 1px darkslategrey;
 }
 
-/* .ContentHeader .image {
-    /* //margin-top: 0.25vh; */
-    /* color: blue;
-    size: "50px"; */
-/* } */
+.content-header .image {
+    height: 30px;
+    width: 30px;
+}
 
 .content-header .label {
-    margin-top: 0.25vh;
-    margin-left: 1vw;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 1000;
 }

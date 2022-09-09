@@ -4,10 +4,12 @@
 
 .App {
   background-color: #282c34;
+  color: whitesmoke;
   height: 100vh;
+  /* height: 100vh;
   display: flex;
   flex-direction: column;
-  color: white;
+  color: white; */
 }
 
 .App-link {

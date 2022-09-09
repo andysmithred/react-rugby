@@ -6,7 +6,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="App">
+    <div className="d-flex flex-column App">
       <Header />
       <Main />
       <Footer />

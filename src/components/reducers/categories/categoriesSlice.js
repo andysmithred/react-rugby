@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import { ImageDetails } from "../../utils/ImageDetails";
+import { getFullPathImage } from "../../utils/ImageDetails";
 
 export const categoriesList = [
-  { name: "Home", icon: "home" },
-  { name: "Cities", icon: "cities" },
-  { name: "Regions", icon: "regions" },
-  { name: "Countries", icon: "countries" },
+  { name: "Home", icon: getFullPathImage("home") },
+  { name: "Cities", icon: getFullPathImage("city") },
+  { name: "Regions", icon: getFullPathImage("region") },
+  { name: "Countries", icon: getFullPathImage("country") },
 ];
 
 const initialState = {

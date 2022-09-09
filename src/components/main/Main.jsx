@@ -16,7 +16,7 @@ const Main = () => {
   }, [dispatch]);
 
   return (
-    <div className="main">
+    <div className="d-flex flex-grow-1 m-1 main">
       <IconBar />
       <Content />
     </div>

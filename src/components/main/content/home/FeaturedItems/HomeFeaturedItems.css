@@ -1,0 +1,8 @@
+.home-featured-items {
+    width: 100%;
+    height: min-content;  
+}
+
+.home-featured-items .item {
+    width: calc(100%/3);
+}

@@ -1,0 +1,8 @@
+.country-view {
+    height: 100%;
+    border: solid 2px orange;
+}
+
+.country-view .country-view-content {
+    height: 95%;
+}

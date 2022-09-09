@@ -1,0 +1,18 @@
+.region-header {
+    width: 100%;
+    border-bottom: solid 1px darkslategrey;
+}
+
+.region-header .flags {
+    display: flex;
+    flex-direction: row;
+}
+
+.region-header .image {
+    height: 6vh;
+    border-radius: 5px;
+}
+
+.region-header .label {
+    font-size: 2rem;
+}
