@@ -11,3 +11,16 @@ export const fetchCountryAPI = async (countryId) => {
   const data = await response.json();
   return data;
 };
+
+export const addCountryAPI = async (country) => {
+  const response = await fetch("https://localhost:7213/api/Countries", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(country),
+  });
+
+  const data = await response.json();
+  return data;
+};

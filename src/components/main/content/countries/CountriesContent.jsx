@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
-
-import "../Content.css";
 import CountriesDetailsView from "./views/CountriesDetailsView";
 import CountriesIndexView from "./views/CountriesIndexView"
-// import CountriesList from "./CountriesList";
+import CountriesNewView from "./views/CountriesNewView";
+import "../Content.css";
+
 
 const CountriesContent = () => {
   const fetching = useSelector((state) => state.countries.fetching);
@@ -18,9 +18,7 @@ const CountriesContent = () => {
       <div className="d-flex flex-column content-main">
         {view === "index" && <CountriesIndexView />}
         {view === "details" && <CountriesDetailsView />}
-        
-        {/* {view === "details" && <RegionsDetailsView />} */}
-        {/* {view === "new" && <RegionsNewView />} */}
+        {view === "new" && <CountriesNewView />}
         {/* {view === "edit" && <RegionsEditView />} */}
         {/* {view === "delete" && <RegionsDeleteView />} */}
       </div>

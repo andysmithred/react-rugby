@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchCountriesAPI, fetchCountryAPI } from "./countriesAPI";
+import { fetchCountriesAPI, fetchCountryAPI, addCountryAPI } from "./countriesAPI";
 
 const initialState = {
   items: [],
@@ -24,6 +24,11 @@ export const fetchCountry = createAsyncThunk(
     return response;
   }
 );
+
+export const addCountry = createAsyncThunk("countries/addCountry", async (country) => {
+  const response = await addCountryAPI(country);
+  return response;
+});
 
 // Slice
 
@@ -53,6 +58,11 @@ const countriesSlice = createSlice({
       .addCase(fetchCountry.fulfilled, (state, action) => {
         state.fetchingSelected = false;
         state.selected = action.payload;
+      })
+      .addCase(addCountry.fulfilled, (state, action) => {
+        state.items.push(action.payload);
+        state.selected = action.payload;
+        state.view = "details";
       });
   },
 });
