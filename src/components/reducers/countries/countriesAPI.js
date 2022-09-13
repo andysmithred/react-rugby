@@ -24,3 +24,19 @@ export const addCountryAPI = async (country) => {
   const data = await response.json();
   return data;
 };
+
+export const updateCountryAPI = async (updatedCountry) => {
+  const response = await fetch(
+    `https://localhost:7213/api/Countries/${updatedCountry.countryId}`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedCountry),
+    }
+  );
+
+  const data = await response.json();
+  return data;
+};

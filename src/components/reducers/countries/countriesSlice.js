@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchCountriesAPI, fetchCountryAPI, addCountryAPI } from "./countriesAPI";
+import { fetchCountriesAPI, fetchCountryAPI, addCountryAPI, updateCountryAPI } from "./countriesAPI";
 
 const initialState = {
   items: [],
@@ -29,6 +29,14 @@ export const addCountry = createAsyncThunk("countries/addCountry", async (countr
   const response = await addCountryAPI(country);
   return response;
 });
+
+export const updateCountry = createAsyncThunk(
+  "countries/updateCountry",
+  async (updatedCountry) => {
+    const response = await updateCountryAPI(updatedCountry);
+    return response;
+  }
+);
 
 // Slice
 
@@ -62,6 +70,13 @@ const countriesSlice = createSlice({
       .addCase(addCountry.fulfilled, (state, action) => {
         state.items.push(action.payload);
         state.selected = action.payload;
+        state.view = "details";
+      })
+      .addCase(updateCountry.fulfilled, (state, action) => {
+        state.selected = action.payload;
+        state.items = state.items.map((item) =>
+          item.countryId === action.payload.countryId ? action.payload : item
+        );
         state.view = "details";
       });
   },

@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import CountriesDetailsView from "./views/CountriesDetailsView";
 import CountriesIndexView from "./views/CountriesIndexView"
 import CountriesNewView from "./views/CountriesNewView";
+import CountriesEditView from "./views/CountriesEditView";
 import "../Content.css";
 
 
@@ -19,7 +20,7 @@ const CountriesContent = () => {
         {view === "index" && <CountriesIndexView />}
         {view === "details" && <CountriesDetailsView />}
         {view === "new" && <CountriesNewView />}
-        {/* {view === "edit" && <RegionsEditView />} */}
+        {view === "edit" && <CountriesEditView />}
         {/* {view === "delete" && <RegionsDeleteView />} */}
       </div>
     </div>
