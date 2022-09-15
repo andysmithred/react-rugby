@@ -8,6 +8,7 @@ import CountryHeader from "./CountryHeader";
 // import CityMap from "./CityMap";
 
 import "./CountryDashboard.css";
+import CountryDetails from "./CountryDetails";
 
 
 const CountryDashboard = () => {
@@ -22,6 +23,22 @@ const CountryDashboard = () => {
     return (
       <div className="pt-1 ps-1 country-dashboard">
         <CountryHeader country={country} />
+        <div className="row">
+          <div className="col-lg-8">
+            MAP
+            {/* <CityMap
+              city={city}
+              label="Map"
+              icon={getFullPathImage("world-map")}
+            /> */}
+          </div>
+          <div className="col-lg-4">
+            <CountryDetails country={country} />
+            {/* <Weather weather={item.weather} /> */}
+            {/* <Time weather={item.weather} />  */}
+          </div>
+          {/* <div className="col-lg-1" style={{"border": "solid 2px red"}}></div> */}
+        </div>
 
         {/* <PlaceLinks /> */}
         {/* <div className="row">

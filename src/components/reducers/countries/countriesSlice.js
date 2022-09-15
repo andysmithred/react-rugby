@@ -1,5 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchCountriesAPI, fetchCountryAPI, addCountryAPI, updateCountryAPI } from "./countriesAPI";
+import {
+  fetchCountriesAPI,
+  fetchCountryAPI,
+  addCountryAPI,
+  updateCountryAPI,
+  deleteCountryAPI,
+} from "./countriesAPI";
 
 const initialState = {
   items: [],
@@ -12,10 +18,13 @@ const initialState = {
 
 // Thunks
 
-export const fetchCountries = createAsyncThunk("countries/fetchCountries", async () => {
-  const response = await fetchCountriesAPI();
-  return response;
-});
+export const fetchCountries = createAsyncThunk(
+  "countries/fetchCountries",
+  async () => {
+    const response = await fetchCountriesAPI();
+    return response;
+  }
+);
 
 export const fetchCountry = createAsyncThunk(
   "countries/fetchCountry",
@@ -25,16 +34,27 @@ export const fetchCountry = createAsyncThunk(
   }
 );
 
-export const addCountry = createAsyncThunk("countries/addCountry", async (country) => {
-  const response = await addCountryAPI(country);
-  return response;
-});
+export const addCountry = createAsyncThunk(
+  "countries/addCountry",
+  async (country) => {
+    const response = await addCountryAPI(country);
+    return response;
+  }
+);
 
 export const updateCountry = createAsyncThunk(
   "countries/updateCountry",
   async (updatedCountry) => {
     const response = await updateCountryAPI(updatedCountry);
     return response;
+  }
+);
+
+export const deleteCountry = createAsyncThunk(
+  "countries/deleteCountry",
+  async (id) => {
+    await deleteCountryAPI(id);
+    return id;
   }
 );
 
@@ -49,7 +69,7 @@ const countriesSlice = createSlice({
     },
     setView: (state, action) => {
       state.view = action.payload;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -77,6 +97,13 @@ const countriesSlice = createSlice({
         state.items = state.items.map((item) =>
           item.countryId === action.payload.countryId ? action.payload : item
         );
+        state.view = "details";
+      })
+      .addCase(deleteCountry.fulfilled, (state, action) => {
+        state.items = state.items.filter(
+          (item) => item.countryId !== action.payload
+        );
+        state.selected = state.items[0];
         state.view = "details";
       });
   },

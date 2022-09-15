@@ -40,3 +40,9 @@ export const updateCountryAPI = async (updatedCountry) => {
   const data = await response.json();
   return data;
 };
+
+export const deleteCountryAPI = async (id) => {
+  await fetch(`https://localhost:7213/api/Countries/${id}`, {
+    method: "delete",
+  });
+};

@@ -1,10 +1,11 @@
 import { useSelector } from "react-redux";
 import CountriesDetailsView from "./views/CountriesDetailsView";
-import CountriesIndexView from "./views/CountriesIndexView"
+import CountriesIndexView from "./views/CountriesIndexView";
 import CountriesNewView from "./views/CountriesNewView";
 import CountriesEditView from "./views/CountriesEditView";
-import "../Content.css";
+import CountryDeleteView from "./views/CountryDeleteView";
 
+import "../Content.css";
 
 const CountriesContent = () => {
   const fetching = useSelector((state) => state.countries.fetching);
@@ -21,7 +22,7 @@ const CountriesContent = () => {
         {view === "details" && <CountriesDetailsView />}
         {view === "new" && <CountriesNewView />}
         {view === "edit" && <CountriesEditView />}
-        {/* {view === "delete" && <RegionsDeleteView />} */}
+        {view === "delete" && <CountryDeleteView />}
       </div>
     </div>
   );

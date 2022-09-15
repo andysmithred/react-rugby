@@ -94,7 +94,7 @@ export const regionsSlice = createSlice({
         );
         state.selected = state.items[0];
         state.view = "details";
-      });;
+      });
   },
 });
 
