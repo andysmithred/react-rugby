@@ -25,6 +25,16 @@ export const ImageDetails = {
       image: "country.png",
     },
     {
+      // school
+      name: "school",
+      image: "school.png",
+    },
+    {
+      // school type
+      name: "school-type",
+      image: "school-type.png",
+    },
+    {
       // world-map
       name: "world-map",
       image: "world-map.png",

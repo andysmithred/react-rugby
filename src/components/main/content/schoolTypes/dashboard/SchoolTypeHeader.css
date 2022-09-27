@@ -1,0 +1,13 @@
+.school-type-header {
+    width: 100%;
+    border-bottom: solid 1px darkslategrey;
+}
+
+.school-type-header .image {
+    height: 6vh;
+    border-radius: 5px;
+}
+
+.school-type-header .label {
+    font-size: 2rem;
+}

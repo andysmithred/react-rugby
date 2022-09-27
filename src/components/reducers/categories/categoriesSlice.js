@@ -6,6 +6,7 @@ export const categoriesList = [
   { name: "Cities", icon: getFullPathImage("city") },
   { name: "Regions", icon: getFullPathImage("region") },
   { name: "Countries", icon: getFullPathImage("country") },
+  { name: "SchoolTypes", icon: getFullPathImage("school-type"), label: "School Types" },
 ];
 
 const initialState = {

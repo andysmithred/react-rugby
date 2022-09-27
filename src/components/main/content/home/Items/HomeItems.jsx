@@ -2,6 +2,7 @@ import HomeItemCities from "./HomeItemCities";
 import HomeItemRegions from "./HomeItemRegions";
 import HomeItemCountries from "./HomeItemCountries";
 import "./HomeItems.css";
+import HomeItemSchoolTypes from "./HomeItemSchoolTypes";
 
 const HomeItems = () => {
   return (
@@ -9,6 +10,7 @@ const HomeItems = () => {
       <HomeItemCities />
       <HomeItemRegions />
       <HomeItemCountries />
+      <HomeItemSchoolTypes />
     </div>
   );
 };
