@@ -1,8 +1,10 @@
 import HomeItemCities from "./HomeItemCities";
 import HomeItemRegions from "./HomeItemRegions";
 import HomeItemCountries from "./HomeItemCountries";
-import "./HomeItems.css";
 import HomeItemSchoolTypes from "./HomeItemSchoolTypes";
+import HomeItemSchools from "./HomeItemSchools";
+
+import "./HomeItems.css";
 
 const HomeItems = () => {
   return (
@@ -11,6 +13,7 @@ const HomeItems = () => {
       <HomeItemRegions />
       <HomeItemCountries />
       <HomeItemSchoolTypes />
+      <HomeItemSchools />
     </div>
   );
 };

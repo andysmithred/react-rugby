@@ -4,6 +4,7 @@ import CitiesContent from "./cities/CitiesContent";
 import RegionsContent from "./regions/RegionsContent";
 import CountriesContent from "./countries/CountriesContent";
 import SchoolTypesContent from "./schoolTypes/SchoolTypesContent";
+import SchoolsContent from "./schools/SchoolsContent";
 
 import "./Content.css";
 
@@ -22,6 +23,7 @@ const Content = () => {
       {category.name === "Regions" && <RegionsContent />}
       {category.name === "Countries" && <CountriesContent />}
       {category.name === "SchoolTypes" && <SchoolTypesContent />}
+      {category.name === "Schools" && <SchoolsContent />}
     </div>
   );
 };

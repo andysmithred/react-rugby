@@ -1,0 +1,13 @@
+.school-details {
+    border: solid 2px lightcyan;
+}
+
+.school-details-item .label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    opacity: 0.5;
+}
+
+.school-details-item .value {
+    font-size: 1.25rem;
+}
