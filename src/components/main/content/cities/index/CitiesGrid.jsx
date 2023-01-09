@@ -10,12 +10,20 @@ import "../views/CitiesViews.css";
 const CitiesGrid = () => {
   const cities = useSelector((state) => state.cities.items);
 
+  const numberFormatter = (params) => {
+    if (params.data.population) {
+      return params.data.population.toLocaleString("en-GB");
+    } else {
+      return "--";
+    }
+  };
+
   const cityColDefs = [
     { field: "cityId" },
     { field: "name" },
     { field: "region.name" },
     { field: "region.country" },
-    { field: "population" },
+    { field: "population", valueFormatter: numberFormatter },
     { field: "latitude" },
     { field: "longitude" },
   ];

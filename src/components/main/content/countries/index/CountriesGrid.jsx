@@ -10,17 +10,45 @@ import "../views/CountriesViews.css";
 const CountriesGrid = () => {
   const countries = useSelector((state) => state.countries.items);
 
+  const populationFormatter = (params) => {
+    return formatNumber(params.data.population);
+  };
+
+  const areaFormatter = (params) => {
+    return formatNumber(params.data.area);
+  };
+
+  const hightestPointFormatter = (params) => {
+    return formatNumber(params.data.highestPoint);
+  };
+
+  const coastlineFormatter = (params) => {
+    return formatNumber(params.data.coastline);
+  };
+
+  const landBoundriesFormatter = (params) => {
+    return formatNumber(params.data.landBoundries);
+  };
+
+  const formatNumber = number => {
+    if (number) {
+      return number.toLocaleString("en-GB");
+    } else {
+      return "--";
+    }
+  }
+
   const colDefs = [
     { field: "countryId" },
     { field: "name" },
     { field: "fullname" },
-    { field: "population" },
-    { field: "area" },
-    { field: "highestPoint" },
+    { field: "population", valueFormatter: populationFormatter },
+    { field: "area", valueFormatter: areaFormatter },
+    { field: "highestPoint", valueFormatter: hightestPointFormatter },
     { field: "highestPointName" },
     { field: "isoCode" },
-    { field: "coastline" },
-    { field: "landBoundries" },
+    { field: "coastline", valueFormatter: coastlineFormatter },
+    { field: "landBoundries", valueFormatter: landBoundriesFormatter },
   ];
 
   const defaultColDef = useMemo(

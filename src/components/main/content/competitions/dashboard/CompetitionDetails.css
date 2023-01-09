@@ -1,0 +1,9 @@
+.competition-details-item .label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    opacity: 0.5;
+}
+
+.competition-details-item .value {
+    font-size: 1.25rem;
+}

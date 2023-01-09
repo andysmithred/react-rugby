@@ -1,3 +1,5 @@
+// Link to i* website
+// https://icons8.com/icon/set/manager/ios-glyphs
 
 export const ImageDetails = {
   flagPath: "../../../assets/flags/",
@@ -15,14 +17,74 @@ export const ImageDetails = {
       image: "city.png",
     },
     {
-      // region
-      name: "region",
-      image: "region.png",
+      // coach
+      name: "coach",
+      image: "coach.png",
+    },
+    {
+      // competition
+      name: "competition",
+      image: "competition.png",
     },
     {
       // country
       name: "country",
       image: "country.png",
+    },
+    {
+      // match
+      name: "match",
+      image: "match.png",
+    },
+    {
+      // match line up
+      name: "match-line-up",
+      image: "match-line-up.png",
+    },
+    {
+      // match point
+      name: "match-point",
+      image: "match-point.png",
+    },
+    {
+      // match point
+      name: "match-position",
+      image: "match-position.png",
+    },
+    {
+      // match team
+      name: "match-team",
+      image: "match-team.png",
+    },
+    {
+      // penalty-try
+      name: "penalty-try",
+      image: "penalty-try.png",
+    },
+    {
+      // player
+      name: "player",
+      image: "player.png",
+    },
+    {
+      // point-type
+      name: "point-type",
+      image: "point-type.png",
+    },
+    {
+      // position
+      name: "position",
+      image: "position.png",
+    },
+    {
+      // referee
+      name: "referee",
+      image: "referee.png",
+    },
+    {
+      // region
+      name: "region",
+      image: "region.png",
     },
     {
       // school
@@ -33,6 +95,36 @@ export const ImageDetails = {
       // school type
       name: "school-type",
       image: "school-type.png",
+    },
+    {
+      // season
+      name: "season",
+      image: "season.png",
+    },
+    {
+      // season-point
+      name: "season-point",
+      image: "season-point.png",
+    },
+    {
+      // stadium
+      name: "stadium",
+      image: "stadium.png",
+    },
+    {
+      // team
+      name: "team",
+      image: "team.png",
+    },
+    {
+      // team-country
+      name: "team-country",
+      image: "team-country.png",
+    },
+    {
+      // team-player
+      name: "team-player",
+      image: "team-player.png",
     },
     {
       // world-map
@@ -58,4 +150,3 @@ export const getFullPathImage = (name) =>
   ImageDetails.iconsPath + (getImage(name) && getImage(name).image);
 
 export const getFullFlagImage = (image) => ImageDetails.flagPath + image;
-

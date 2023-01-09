@@ -1,0 +1,13 @@
+.coach-details {
+    /* border: solid 2px lightcyan; */
+}
+
+.coach-details-item .label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    opacity: 0.5;
+}
+
+.coach-details-item .value {
+    font-size: 1.25rem;
+}

@@ -1,0 +1,13 @@
+/* .stadium-details {
+    border: solid 2px lightcyan;
+} */
+
+.player-details-item .label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    opacity: 0.5;
+}
+
+.player-details-item .value {
+    font-size: 1.25rem;
+}

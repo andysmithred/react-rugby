@@ -3,7 +3,7 @@
     /* Make the links appear below each other instead of side-by-side */
     text-align: center;
     /* Center-align text */
-    padding: 1vh;
+    padding: 0.75vh;
     /* Add some padding */
     transition: all 0.1s ease;
     /* Add transition for hover effects */
@@ -13,13 +13,13 @@
 }
 
 .icon-bar-item .image {
-    height: 20px;
-    width: 20px;
+    height: 15px;
+    width: 15px;
 }
 
 .icon-bar-item:hover {
     background-color: darkslategrey;
     opacity: 0.5;
     cursor: pointer;
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
