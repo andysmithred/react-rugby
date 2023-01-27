@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import FilterableContentList from "../../common/FilterableContentList";
-import ListTile from "../../common/ListTile";
+import ListTile from "../../common/lists/ListTile";
 import {
   fetchPlayer,
   filterPlayers,

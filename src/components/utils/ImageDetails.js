@@ -136,6 +136,21 @@ export const ImageDetails = {
       name: "info",
       image: "info.png",
     },
+    {
+      // lock
+      name: "lock",
+      image: "lock.png"
+    },
+    {
+      // unlock
+      name: "unlock",
+      image: "unlock.png"
+    },
+    {
+      // forward
+      name: "forward",
+      image: "forward.png"
+    }
   ],
   getIconImage: (name) => this.icons.find((icon) => icon.name === name),
   getFullIconPath: (name) =>

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import FilterableContentList from "../../common/FilterableContentList";
-import ListTile from "../../common/ListTile";
+import ListTile from "../../common/lists/ListTile";
 import { fetchCity, filterCities } from "../../../../reducers/cities/citiesSlice";
 
 import "./CitiesList.css";
@@ -28,7 +28,7 @@ const CitiesList = () => {
           key={city.cityId}
           id={city.cityId}
           primary={city.name}
-          secondary={city.region.name}
+          secondary={city.region}
           icon={category.icon}
           onItemClick={handleItemClick}
         />

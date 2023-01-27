@@ -1,21 +1,32 @@
-import { useDispatch } from "react-redux/es/exports";
-import CitiesHeader from "../header/CitiesHeader";
-import { updateCity } from "../../../../reducers/cities/citiesSlice";
+import { useDispatch, useSelector } from "react-redux/es/exports";
+import {
+  fetchCities,
+  updateCity,
+  setView,
+} from "../../../../reducers/cities/citiesSlice";
+import ItemsHeader from "../../common/ItemsHeader";
 import EditCity from "../forms/EditCity";
 
 const CitiesEditView = () => {
   const dispatch = useDispatch();
+  const category = useSelector((state) =>
+    state.categories.items.find((c) => c.name === "Cities")
+  );
 
-  const handleEditCity = (updatedCity) => {
-    console.log("IN >> handleEditCity");
-    console.log(updatedCity);
-    dispatch(updateCity(updatedCity));
+  const handleEdit = (updated) => {
+    console.log(updated);
+    dispatch(updateCity(updated));
+    dispatch(fetchCities());
   };
 
   return (
     <div className="d-flex flex-column">
-      <CitiesHeader menu_items={["Index", "Details"]} />
-      <EditCity onEditCity={handleEditCity} />
+      <ItemsHeader
+        menuItems={["Index", "Details"]}
+        category={category}
+        setView={setView}
+      />
+      <EditCity onEdit={handleEdit} />
     </div>
   );
 };

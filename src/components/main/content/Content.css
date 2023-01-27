@@ -1,10 +1,10 @@
-.content {
+/* .content {
     border: solid 2px yellow;
-}
+} */
 
 .content-main {
     height: 91.5vh;
-    border: solid 2px green;
+    /* border: solid 2px green; */
 }
 
 /* header */
@@ -34,7 +34,7 @@
 
 .content-view {
     height: 100%;
-    border: solid 2px orange;
+    /* border: solid 2px orange; */
 }
 
 .content-view .content-view-content {

@@ -6,7 +6,7 @@ import {
   categoriesList,
   setCategories,
 } from "../reducers/categories/categoriesSlice";
-import "./Main.css";
+
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const Main = () => {
   }, [dispatch]);
 
   return (
-    <div className="d-flex flex-grow-1 m-1 main">
+    <div className="d-flex flex-grow-1 m-1">
       <IconBar />
       <Content />
     </div>

@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
 
-const DeleteCity = ({ onDeleteCity, onCancel }) => {
+const DeleteCity = ({ onDelete, onCancel }) => {
   const city = useSelector((state) => state.cities.selected);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    onDeleteCity(city.cityId);
+    onDelete(city.cityId);
   };
 
   return (
@@ -30,7 +30,7 @@ const DeleteCity = ({ onDeleteCity, onCancel }) => {
         <div className="col-lg-6 pt-2 city-details-item">
           <div className="label">POPULATION</div>
           <div className="value">
-            {city.population ? city.population : "--"}
+            {city.population ? city.population.toLocaleString("en-GB") : "--"}
           </div>
         </div>
         <div className="col-lg-6 pt-2 city-details-item">

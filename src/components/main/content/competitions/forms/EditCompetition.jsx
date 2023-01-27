@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux/es/exports";
-import InputString from "../../common/InputString";
+import InputString from "../../common/inputs/InputString";
 
 const EditCompetition = ({ onEdit }) => {
   const item = useSelector((state) => state.competitions.item);

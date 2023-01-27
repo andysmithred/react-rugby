@@ -35,7 +35,7 @@ const Content = () => {
   }
 
   return (
-    <div className="d-flex flex-column flex-fill content">
+    <div className="d-flex flex-column flex-fill m-2">
       {category.name === "Home" && <HomeContent />}
       {category.name === "Cities" && <CitiesContent />}
       {category.name === "Coaches" && <CoachesContent />}

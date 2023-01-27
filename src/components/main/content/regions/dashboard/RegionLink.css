@@ -1,0 +1,32 @@
+.RegionLink {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    border-radius: 5px;
+    /* border: solid 1px red; */
+}
+
+.RegionLink .image {
+    height: 2.5vh;
+    width: 2.5vh;
+    object-fit: cover;
+    overflow: hidden;
+    /* //opacity:0.4; */
+    border-radius: 5px;
+}
+
+.RegionLink .title {
+    font-size: 1.25rem;
+}
+
+.RegionLink .arrow {
+    height: 2.5vh;
+    width: 2.5vh;
+    /* //opacity:0.7; */
+} 
+
+.RegionLink:hover {
+    opacity: 0.5;
+    background-color: darkslategray;
+    cursor: pointer;
+}

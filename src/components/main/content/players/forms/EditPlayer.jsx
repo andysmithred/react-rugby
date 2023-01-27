@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useSelector } from "react-redux/es/exports";
-import InputString from "../../common/InputString";
-import InputNumber from "../../common/InputNumber";
-import InputDate from "../../common/InputDate";
-import InputSelect from "../../common/InputSelect";
-import InputDecimal from "../../common/InputDecimal";
-import InputCheckbox from "../../common/InputCheckbox";
-
+import InputString from "../../common/inputs/InputString";
+import InputNumber from "../../common/inputs/InputNumber";
+import InputDate from "../../common/inputs/InputDate";
+import InputSelect from "../../common/inputs/InputSelect";
+import InputDecimal from "../../common/inputs/InputDecimal";
+import InputCheckbox from "../../common/inputs/InputCheckbox";
 
 const EditPlayer = ({ onEdit }) => {
   const item = useSelector((state) => state.players.item);
@@ -49,7 +48,7 @@ const EditPlayer = ({ onEdit }) => {
       cityId: cityId ? cityId : null,
       positionId: 1,
       deceased,
-      fullName
+      fullName,
     });
   };
 

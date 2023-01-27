@@ -1,8 +1,8 @@
 const InputCheckbox = ({ label, input, setInput }) => {
   return (
-    <div class="input-group mb-3 input-group-sm">
+    <div className="input-group mb-3 input-group-sm">
       <span className="input-group-text bg-dark text-white w-25">{label}</span>
-      <div class="input-group-text bg-dark text-white">
+      <div className="input-group-text bg-dark text-white">
         <input
           type="checkbox"
           checked={input}

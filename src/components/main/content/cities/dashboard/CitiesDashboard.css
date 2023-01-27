@@ -8,6 +8,11 @@
     height: min-content;
 } */
 
+.cities-dashboard-block {
+    height: 300px;
+}
+
+
 .cities-dashboard .third {
     width: calc(100%/3);
 }

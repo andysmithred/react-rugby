@@ -16,3 +16,7 @@
 .city-header .label {
     font-size: 2rem;
 }
+
+.city-header .complete {
+    height: 3vh;
+}

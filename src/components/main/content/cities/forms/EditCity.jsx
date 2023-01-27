@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { useSelector } from "react-redux/es/exports";
+import InputString from "../../common/inputs/InputString";
+import InputNumber from "../../common/inputs/InputNumber";
+import InputSelect from "../../common/inputs/InputSelect";
+import InputCheckbox from "../../common/inputs/InputCheckbox";
 
-const EditCity = ({ onEditCity }) => {
+
+const EditCity = ({ onEdit }) => {
   const regions = useSelector((state) => state.regions.items);
   const city = useSelector((state) => state.cities.selected);
 
@@ -9,8 +14,10 @@ const EditCity = ({ onEditCity }) => {
   const [population, setPopulation] = useState(city.population);
   const [latitude, setLatitude] = useState(city.latitude);
   const [longitude, setLongitude] = useState(city.longitude);
+  const [zoom, setZoom] = useState(city.zoom);
   const [regionId, setRegionId] = useState(city.regionId);
   const [isCapital, setIsCapital] = useState(city.isCapital);
+  const [complete, setComplete] = useState(city.complete);
 
   let options = [];
   options = regions.map((r) => {
@@ -30,10 +37,12 @@ const EditCity = ({ onEditCity }) => {
       population,
       latitude,
       longitude,
+      zoom: zoom ? zoom : 10,
       regionId,
       isCapital,
+      complete,
     };
-    onEditCity(updatedCity);
+    onEdit(updatedCity);
   };
 
   return (
@@ -42,75 +51,48 @@ const EditCity = ({ onEditCity }) => {
         <h5>Edit City</h5>
       </div>
       <hr></hr>
-      <div className="input-group mb-3 input-group-sm">
-        <span className="input-group-text bg-dark text-white w-25">Name</span>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Add Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
-      <div className="input-group mb-3 input-group-sm">
-        <span className="input-group-text bg-dark text-white w-25">
-          Population
-        </span>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Add Population"
-          value={population ? population : ""}
-          onChange={(e) => setPopulation(parseInt(e.target.value))}
-        />
-      </div>
-      <div className="input-group mb-3 input-group-sm">
-        <span className="input-group-text bg-dark text-white w-25">
-          Latitude
-        </span>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Add Latitude"
-          value={latitude ? latitude : ""}
-          onChange={(e) => setLatitude(parseInt(e.target.value))}
-        />
-      </div>
-      <div className="input-group mb-3 input-group-sm">
-        <span className="input-group-text bg-dark text-white w-25">
-          Longitude
-        </span>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Add Longitude"
-          value={longitude ? longitude : ""}
-          onChange={(e) => setLongitude(e.target.value)}
-        />
-      </div>
-      <div className="input-group mb-3 input-group-sm">
-        <span className="input-group-text bg-dark text-white w-25">Region</span>
-        <select
-          value={regionId}
-          className="form-control"
-          onChange={(e) => setRegionId(parseInt(e.target.value))}
-        >
-          {options}
-        </select>
-      </div>
-      <div className="input-group mb-3 input-group-sm">
-        <span className="input-group-text bg-dark text-white w-25">
-          Is Capital
-        </span>
-        <div className="input-group-text bg-dark text-white">
-          <input
-            type="checkbox"
-            checked={isCapital}
-            value={isCapital}
-            onChange={(e) => setIsCapital(e.target.checked)}
-          />
-        </div>
-      </div>
+      <InputString
+        label="Name"
+        input={name}
+        setInput={setName}
+        placeholder="Add Name"
+      />
+      <InputNumber
+        label="Population"
+        input={population}
+        setInput={setPopulation}
+        placeholder="Add Population"
+      />
+      <InputString
+        label="Latitude"
+        input={latitude}
+        setInput={setLatitude}
+        placeholder="Add Latitude"
+      />
+      <InputString
+        label="Longitude"
+        input={longitude}
+        setInput={setLongitude}
+        placeholder="Add Longitude"
+      />
+      <InputNumber
+        label="Zoom"
+        input={zoom}
+        setInput={setZoom}
+        placeholder="Add Zoom"
+      />
+      <InputSelect
+        label="Region"
+        input={regionId}
+        setInput={setRegionId}
+        options={options}
+      />
+      <InputCheckbox
+        label="Is Capital"
+        input={isCapital}
+        setInput={setIsCapital}
+      />
+      <InputCheckbox label="Complete" input={complete} setInput={setComplete} />
       <hr></hr>
       <input
         type="submit"

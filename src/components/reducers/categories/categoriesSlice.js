@@ -9,6 +9,7 @@ export const categoriesList = [
   {
     name: "Cities",
     icon: getFullPathImage("city"),
+    label: "Cities"
   },
   {
     name: "Coaches",

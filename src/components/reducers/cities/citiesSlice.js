@@ -10,9 +10,9 @@ import {
 const initialState = {
   items: [],
   fetchingItems: false,
+  item: null,
+  fetchingItem: false,
   filter: "",
-  selected: null,
-  fetchingSelected: false,
   view: "index", // index, details, new, edit, delete
 };
 
@@ -65,9 +65,11 @@ export const citiesSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchCities.pending, (state) => {
+        console.log("fetchCities.pending")
         state.fetching = true;
       })
       .addCase(fetchCities.fulfilled, (state, action) => {
+        console.log("fetchCities.fulfilled")
         state.fetching = false;
         state.items = action.payload;
       })
@@ -79,14 +81,18 @@ export const citiesSlice = createSlice({
         state.selected = action.payload;
       })
       .addCase(addCity.fulfilled, (state, action) => {
-        state.items.push(action.payload);
+        // state.items.push(action.payload); --> no longet necessary as we reload the whole list
         state.view = "index";
       })
       .addCase(updateCity.fulfilled, (state, action) => {
+
+        console.log("updateCity.fulfilled");
+        console.log(action);
+
         state.selected = action.payload;
-        state.items = state.items.map((item) =>
-          item.cityId === action.payload.cityId ? action.payload : item
-        );
+        // state.items = state.items.map((item) =>
+        //   item.cityId === action.payload.cityId ? action.payload : item
+        // );
         state.view = "details";
       })
       .addCase(deleteCity.fulfilled, (state, action) => {

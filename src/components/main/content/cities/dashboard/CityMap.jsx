@@ -1,13 +1,13 @@
 import DetailsHeader from "../../common/DetailsHeader";
-// import MapContainer from "./MapContainer";
+import MapContainer from "../../common/maps/MapContainer";
+
 import "./CityMap.css";
 
-const CityMap = (props) => {
+const CityMap = ({ city, icon, label }) => {
   return (
     <div className="pt-1 me-1 city-map">
-        <DetailsHeader icon={props.icon} label={props.label} />
-        <div>MAP</div>
-        {/* <MapContainer city={props.city} /> */}
+        <DetailsHeader icon={icon} label={label} />
+        <MapContainer latitude={city.latitude} longitude={city.longitude} zoom={city.zoom} />
     </div>
   );
 };

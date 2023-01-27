@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { setCategory } from "../../reducers/categories/categoriesSlice";
 import IconBarItem from "./IconBarItem";
 
-import "./IconBar.css";
 
 const IconBar = () => {
   const dispatch = useDispatch();
@@ -27,7 +26,7 @@ const IconBar = () => {
     );
   });
 
-  return <div className="d-flex flex-column icon-bar">{iconBarItems}</div>;
+  return <div className="d-flex flex-column m-1">{iconBarItems}</div>;
 };
 
 export default IconBar;

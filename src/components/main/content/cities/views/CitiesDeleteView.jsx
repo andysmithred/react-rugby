@@ -1,25 +1,33 @@
-import { useDispatch } from "react-redux";
-import { deleteCity, setView } from "../../../../reducers/cities/citiesSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  deleteCity,
+  setView,
+} from "../../../../reducers/cities/citiesSlice";
+import ItemsHeader from "../../common/ItemsHeader";
 import DeleteCity from "../forms/DeleteCity";
-import CitiesHeader from "../header/CitiesHeader";
 
 const CitiesDeleteView = () => {
   const dispatch = useDispatch();
+  const category = useSelector((state) =>
+    state.categories.items.find((c) => c.name === "Cities")
+  );
 
-  const handleDeleteCity = (id) => {
-    console.log(`DELETE: ${id}`);
+  const handleDelete = (id) => {
     dispatch(deleteCity(id));
   };
 
   const handleCancel = () => {
-    console.log("Cancelling");
     dispatch(setView("details"));
   };
 
   return (
     <div className="d-flex flex-column">
-      <CitiesHeader menu_items={["Index", "Details"]} />
-      <DeleteCity onDeleteCity={handleDeleteCity} onCancel={handleCancel} />
+      <ItemsHeader
+        menuItems={["Index", "Details"]}
+        category={category}
+        setView={setView}
+      />
+      <DeleteCity onDelete={handleDelete} onCancel={handleCancel} />
     </div>
   );
 };

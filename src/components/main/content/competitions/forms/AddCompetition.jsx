@@ -1,5 +1,5 @@
 import { useState } from "react";
-import InputString from "../../common/InputString";
+import InputString from "../../common/inputs/InputString";
 
 const AddCompetition = ({ onAdd }) => {
   const [name, setName] = useState("");

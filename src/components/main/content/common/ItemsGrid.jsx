@@ -8,7 +8,7 @@ import "../Content.css";
 
 // TODO:AS another candidate for refactoring
 
-const ItemsGrid = ({ items, columnDefs }) => {
+const ItemsGrid = ({ items, columnDefs, onRowClick }) => {
 
   const defaultColDef = useMemo(
     () => ({
@@ -52,8 +52,10 @@ const ItemsGrid = ({ items, columnDefs }) => {
   ];
 
   const cellClickedListener = useCallback((e) => {
+    // TODO:AS remove
     console.log("Cell clicked", e);
-  }, []);
+    onRowClick(e.data);
+  }, [onRowClick]);
 
   return (
     <div className="ag-theme-balham-dark content-view-content">
