@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { setView } from "../../../../reducers/cities/citiesSlice";
+import { setCitiesView } from "../../../../reducers/cities/citiesSlice";
 
 import ItemsHeader from "../../common/ItemsHeader";
 import CitiesList from "../list/CitiesList";
@@ -15,9 +15,9 @@ const CitiesDetailsView = () => {
   return (
     <div className="d-flex flex-column content-view">
       <ItemsHeader
-        menuItems={["Index", "Edit", "Delete"]}
+        menuItems={["Index", "New", "Edit", "Delete"]}
         category={category}
-        setView={setView}
+        setView={setCitiesView}
       />
 
       <div className="d-flex flex-row content-view-content">

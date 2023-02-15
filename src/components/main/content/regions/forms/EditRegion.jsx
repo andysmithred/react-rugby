@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { useSelector } from "react-redux/es/exports";
+import InputString from "../../common/inputs/InputString";
+import InputSelect from "../../common/inputs/InputSelect";
+import InputCheckbox from "../../common/inputs/InputCheckbox";
 
-const EditRegion = ({ onEditRegion }) => {
+
+const EditRegion = ({ onEdit }) => {
   const countries = useSelector((state) => state.countries.items);
-  const region = useSelector((state) => state.regions.selected);
+  const region = useSelector((state) => state.regions.item);
 
   const [name, setName] = useState(region.name);
   const [countryId, setCountryId] = useState(region.countryId);
+  const [complete, setComplete] = useState(region.complete);
 
   let options = [];
   options = countries.map((x) => {
@@ -19,7 +24,7 @@ const EditRegion = ({ onEditRegion }) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    onEditRegion({ regionId: region.regionId, name, countryId });
+    onEdit({ regionId: region.regionId, name, countryId, complete });
   };
 
   return (
@@ -28,26 +33,19 @@ const EditRegion = ({ onEditRegion }) => {
         <h5>Edit Region</h5>
       </div>
       <hr></hr>
-      <div className="input-group mb-3 input-group-sm">
-        <span className="input-group-text bg-dark text-white w-25">Name</span>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Add Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
-      <div className="input-group mb-3 input-group-sm">
-        <span className="input-group-text bg-dark text-white w-25">Country</span>
-        <select
-          value={countryId}
-          className="form-control"
-          onChange={(e) => setCountryId(parseInt(e.target.value))}
-        >
-          {options}
-        </select>
-      </div>
+      <InputString
+        label="Name"
+        input={name}
+        setInput={setName}
+        placeholder="Add Name"
+      />
+      <InputSelect
+        label="Country"
+        input={countryId}
+        setInput={setCountryId}
+        options={options}
+      />
+      <InputCheckbox label="Complete" input={complete} setInput={setComplete} />
       <hr></hr>
       <input
         type="submit"

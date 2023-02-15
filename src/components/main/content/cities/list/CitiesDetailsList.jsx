@@ -5,36 +5,36 @@ import ListSmallTile from "../../common/lists/ListSmallTile";
 import ContentList from "../../common/ContentList";
 
 import {
-  fetchPlayer,
-  setView,
-} from "../../../../reducers/players/playersSlice";
+  fetchCity,
+  setCitiesView,
+} from "../../../../reducers/cities/citiesSlice";
 import { setCategory } from "../../../../reducers/categories/categoriesSlice";
 
-import "./PlayersDetailsList.css";
+import "./CitiesDetailsList.css";
 
-const PlayersDetailsList = ({ players }) => {
+const CitiesDetailsList = ({ cities }) => {
   const dispatch = useDispatch();
   const category = useSelector((state) =>
-    state.categories.items.find((c) => c.name === "Players")
+    state.categories.items.find((c) => c.name === "Cities")
   );
 
-  let arrayForSort = [...players];
-  arrayForSort.sort((a, b) => a.lastName.localeCompare(b.lastName));
+  let arrayForSort = [...cities];
+  arrayForSort.sort((a, b) => a.name.localeCompare(b.name));
 
   const items = [];
 
   const handleItemClick = (id) => {
-    dispatch(fetchPlayer(id));
-    dispatch(setView("details"));
+    dispatch(fetchCity(id));
+    dispatch(setCitiesView("details"));
     dispatch(setCategory(category));
   };
 
-  arrayForSort.forEach((player) => {
+  arrayForSort.forEach((city) => {
     items.push(
       <ListSmallTile
-        key={player.playerId}
-        id={player.playerId}
-        label={player.name}
+        key={city.cityId}
+        id={city.cityId}
+        label={city.name}
         icon={category.icon}
         onItemClick={handleItemClick}
       />
@@ -42,11 +42,11 @@ const PlayersDetailsList = ({ players }) => {
   });
 
   return (
-    <div className="pt-1 mb-1 players-details-list">
-      <DetailsHeader icon={getFullPathImage("player")} label="Players" />
+    <div className="pt-1 mb-1 cities-details-list">
+      <DetailsHeader icon={getFullPathImage("city")} label="Cities" />
       <ContentList items={items} />
     </div>
   );
 };
 
-export default PlayersDetailsList;
+export default CitiesDetailsList;

@@ -1,20 +1,33 @@
-import { useDispatch } from "react-redux/es/exports";
-import RegionsHeader from "../header/RegionsHeader";
+import { useDispatch, useSelector } from "react-redux/es/exports";
+
+import {
+  fetchRegions,
+  addRegion,
+  setRegionsView,
+} from "../../../../reducers/regions/regionsSlice";
+import ItemsHeader from "../../common/ItemsHeader";
 import AddRegion from "../forms/AddRegion";
-import { addRegion } from "../../../../reducers/regions/regionsSlice";
+
 
 const RegionsNewView = () => {
   const dispatch = useDispatch();
+  const category = useSelector((state) =>
+    state.categories.items.find((x) => x.name === "Regions")
+  );
 
-  const handleAddRegion = (region) => {
-    console.log("IN >> handleAddRegion");
-    dispatch(addRegion(region));
+  const handleAddItem = (item) => {
+    dispatch(addRegion(item));
+    dispatch(fetchRegions());
   };
 
   return (
     <div className="d-flex flex-column">
-      <RegionsHeader menu_items={["Index"]} />
-      <AddRegion onAddRegion={handleAddRegion} />
+      <ItemsHeader
+        menuItems={["Index", "Details"]}
+        category={category}
+        setView={setRegionsView}
+      />
+      <AddRegion onAdd={handleAddItem} />
     </div>
   );
 };

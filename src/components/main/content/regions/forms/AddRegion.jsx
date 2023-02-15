@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { useSelector } from "react-redux/es/exports";
+import InputString from "../../common/inputs/InputString";
+import InputSelect from "../../common/inputs/InputSelect";
+import InputCheckbox from "../../common/inputs/InputCheckbox";
 
-const AddRegion = ({ onAddRegion }) => {
+const AddRegion = ({ onAdd }) => {
   const countries = useSelector((state) => state.countries.items);
 
   const [name, setName] = useState("");
   const [countryId, setCountryId] = useState(countries[0].countryId);
+  const [complete, setComplete] = useState(false);
 
   let options = [];
   options = countries.map((x) => {
@@ -18,7 +22,7 @@ const AddRegion = ({ onAddRegion }) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    onAddRegion({ name, countryId });
+    onAdd({ name, countryId, complete });
   };
 
   return (
@@ -27,28 +31,19 @@ const AddRegion = ({ onAddRegion }) => {
         <h5>Add Region</h5>
       </div>
       <hr></hr>
-      <div className="input-group mb-3 input-group-sm">
-        <span className="input-group-text bg-dark text-white w-25">Name</span>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Add Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
-      <div className="input-group mb-3 input-group-sm">
-        <span className="input-group-text bg-dark text-white w-25">
-          Country
-        </span>
-        <select
-          value={countryId}
-          className="form-control"
-          onChange={(e) => setCountryId(parseInt(e.target.value))}
-        >
-          {options}
-        </select>
-      </div>
+      <InputString
+        label="Name"
+        input={name}
+        setInput={setName}
+        placeholder="Add Name"
+      />
+      <InputSelect
+        label="Country"
+        input={countryId}
+        setInput={setCountryId}
+        options={options}
+      />
+      <InputCheckbox label="Complete" input={complete} setInput={setComplete} />
       <hr></hr>
       <input
         type="submit"

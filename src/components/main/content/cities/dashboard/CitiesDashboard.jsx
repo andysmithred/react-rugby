@@ -1,7 +1,7 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
 import { getFullPathImage } from "../../../../utils/ImageDetails";
-// import { useEffect } from "react";
-// import { fetchCity } from "../../../../reducers/cities/citiesSlice";
+import { fetchCity } from "../../../../reducers/cities/citiesSlice";
 
 import "./CitiesDashboard.css";
 import CityDetails from "./CityDetails";
@@ -14,8 +14,16 @@ import PlayersDetailsList from "../../players/list/PlayersDetailsList";
 import CityLinks from "./CityLinks";
 
 const CitiesDashboard = () => {
+  const dispatch = useDispatch();
   const fetching = useSelector((state) => state.cities.fetchingSelected);
+  const cities = useSelector((state) => state.cities.items);
   const city = useSelector((state) => state.cities.selected);
+
+  useEffect(() => {
+    if (!fetching && cities.length > 0 && !city) {
+      dispatch(fetchCity(cities[0].cityId));
+    }
+  }, [dispatch, fetching, cities, city]);
 
   if (fetching) {
     return <div>LOADING...</div>;

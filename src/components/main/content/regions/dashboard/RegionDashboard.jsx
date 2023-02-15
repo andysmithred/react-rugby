@@ -1,18 +1,25 @@
-import { useSelector } from "react-redux";
-import { getFullPathImage } from "../../../../utils/ImageDetails";
-// import { useEffect } from "react";
-// import { fetchCity } from "../../../../reducers/cities/citiesSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchRegion } from "../../../../reducers/regions/regionsSlice";
+
+import RegionHeader from "./RegionHeader";
+import RegionLinks from "./RegionLinks";
+import RegionDetails from "./RegionDetails";
+import CitiesDetailsList from "../../cities/list/CitiesDetailsList";
 
 import "./RegionDashboard.css";
-import RegionHeader from "./RegionHeader";
-import RegionDetails from "./RegionDetails";
-// import CityDetails from "./CityDetails";
-// import CityHeader from "./CityHeader";
-// import CityMap from "./CityMap";
 
 const RegionDashboard = () => {
-  const fetching = useSelector((state) => state.regions.fetchingSelected);
-  const region = useSelector((state) => state.regions.selected);
+  const dispatch = useDispatch();
+  const fetching = useSelector((state) => state.regions.fetchingItem);
+  const regions = useSelector((state) => state.regions.items);
+  const region = useSelector((state) => state.regions.item);
+
+  useEffect(() => {
+    if (!fetching && regions.length > 0 && !region) {
+      dispatch(fetchRegion(regions[0].regionId));
+    }
+  }, [dispatch, fetching, regions, region]);
 
   if (fetching) {
     return <div>LOADING...</div>;
@@ -20,26 +27,16 @@ const RegionDashboard = () => {
 
   if (region) {
     return (
-      <div className="pt-1 ps-1 cities-dashboard">
+      <div className="pt-1 ps-1 region-dashboard">
         <RegionHeader region={region} />
-        {/* <PlaceLinks /> */}
+        <RegionLinks region={region} />
         <div className="row">
-          <div className="col-lg-8">
-            MAP
-            {/* <CityMap
-              city={city}
-              label="Map"
-              icon={getFullPathImage("world-map")}
-            /> */}
-          </div>
-          <div className="col-lg-4">
+          <div className="col-lg-3">
             <RegionDetails region={region} />
-            {/* <CityDetails city={city} /> */}
-            {/* <PlaceDetails item={item} />
-            <Weather weather={item.weather} />
-            <Time weather={item.weather} /> */}
           </div>
-          {/* <div className="col-lg-1" style={{"border": "solid 2px red"}}></div> */}
+          <div className="col-lg-3 regions-dashboard-block">
+            <CitiesDetailsList cities={region.cities} />
+          </div>
         </div>
       </div>
     );

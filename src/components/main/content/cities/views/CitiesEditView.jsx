@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux/es/exports";
 import {
   fetchCities,
   updateCity,
-  setView,
+  setCitiesView,
 } from "../../../../reducers/cities/citiesSlice";
 import ItemsHeader from "../../common/ItemsHeader";
 import EditCity from "../forms/EditCity";
@@ -14,7 +14,6 @@ const CitiesEditView = () => {
   );
 
   const handleEdit = (updated) => {
-    console.log(updated);
     dispatch(updateCity(updated));
     dispatch(fetchCities());
   };
@@ -24,7 +23,7 @@ const CitiesEditView = () => {
       <ItemsHeader
         menuItems={["Index", "Details"]}
         category={category}
-        setView={setView}
+        setView={setCitiesView}
       />
       <EditCity onEdit={handleEdit} />
     </div>

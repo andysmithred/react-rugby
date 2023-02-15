@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { setView, fetchCity } from "../../../../reducers/cities/citiesSlice";
+import { setCitiesView, fetchCity } from "../../../../reducers/cities/citiesSlice";
 
 import ItemsHeader from "../../common/ItemsHeader";
 import ItemsGrid from "../../common/ItemsGrid";
@@ -23,7 +23,7 @@ const CitiesIndexView = () => {
 
   const rowClickedHandler = (data) => {
     dispatch(fetchCity(data.cityId));
-    dispatch(setView("details"));
+    dispatch(setCitiesView("details"));
   }
 
   const colDefs = [
@@ -50,7 +50,7 @@ const CitiesIndexView = () => {
       <ItemsHeader
         menuItems={["Details", "New"]}
         category={category}
-        setView={setView}
+        setView={setCitiesView}
       />
       <ItemsGrid
         items={items}

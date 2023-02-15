@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux/es/exports";
 import {
   fetchCities,
   addCity,
-  setView,
+  setCitiesView,
 } from "../../../../reducers/cities/citiesSlice";
 import ItemsHeader from "../../common/ItemsHeader";
 import AddCity from "../forms/AddCity";
@@ -23,9 +23,9 @@ const CitiesNewView = () => {
   return (
     <div className="d-flex flex-column">
       <ItemsHeader
-        menuItems={["Index"]}
+        menuItems={["Index", "Details"]}
         category={category}
-        setView={setView}
+        setView={setCitiesView}
       />
       <AddCity onAdd={handleAddItem} />
     </div>

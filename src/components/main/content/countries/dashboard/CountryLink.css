@@ -1,0 +1,31 @@
+.country-link {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    border-radius: 5px;
+}
+
+.country-link .image {
+    height: 2.5vh;
+    width: 2.5vh;
+    object-fit: cover;
+    overflow: hidden;
+    /* //opacity:0.4; */
+    border-radius: 5px;
+}
+
+.country-link .title {
+    font-size: 1.25rem;
+}
+
+.country-link .arrow {
+    height: 2.5vh;
+    width: 2.5vh;
+    /* //opacity:0.7; */
+}
+
+.country-link:hover {
+    opacity: 0.5;
+    background-color: darkslategray;
+    cursor: pointer;
+}

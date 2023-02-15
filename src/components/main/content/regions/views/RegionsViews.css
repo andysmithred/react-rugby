@@ -1,8 +1,0 @@
-.region-view {
-    height: 100%;
-    border: solid 2px orange;
-}
-
-.region-view .region-view-content {
-    height: 98%;
-}

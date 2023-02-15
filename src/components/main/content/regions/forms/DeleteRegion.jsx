@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
 
-const DeleteRegion = ({ onDeleteRegion, onCancel }) => {
-  const region = useSelector((state) => state.regions.selected);
+const DeleteRegion = ({ onDelete, onCancel }) => {
+  const region = useSelector((state) => state.regions.item);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    onDeleteRegion(region.regionId);
+    onDelete(region.regionId);
   };
 
   if (region.numberCities > 0) {

@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import {
   deleteCountry,
-  setView,
+  setCountriesView,
 } from "../../../../reducers/countries/countriesSlice";
 import CountriesHeader from "../header/CountriesHeader";
 import DeleteCountry from "../forms/DeleteCountry";
@@ -14,7 +14,7 @@ const CountryDeleteView = () => {
   };
 
   const handleCancel = () => {
-    dispatch(setView("details"));
+    dispatch(setCountriesView("details"));
   };
 
   return (

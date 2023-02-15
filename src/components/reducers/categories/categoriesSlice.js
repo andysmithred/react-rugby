@@ -78,6 +78,7 @@ export const categoriesList = [
   {
     name: "Regions",
     icon: getFullPathImage("region"),
+    label: "Regions"
   },
   {
     name: "Schools",

@@ -16,3 +16,7 @@
 .region-header .label {
     font-size: 2rem;
 }
+
+.region-header .complete {
+    height: 3vh;
+}

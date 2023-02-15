@@ -1,33 +1,31 @@
 import { useSelector, useDispatch } from "react-redux";
-import { fetchRegion, setView } from "../../../../reducers/regions/regionsSlice";
 import { setCategory } from "../../../../reducers/categories/categoriesSlice";
 import { getFullPathImage } from "../../../../utils/ImageDetails";
 
-import "./RegionLink.css";
+import "./Link.css";
 
 
-const RegionLink = ({ region }) => {
+const Link = ({ id, title, categoryName, onItemClick }) => {
     const dispatch = useDispatch();
     const category = useSelector((state) =>
-        state.categories.items.find((c) => c.name === "Regions")
+        state.categories.items.find((c) => c.name === categoryName)
     );  
 
     const handleItemClick = (category, id) => {
-      dispatch(fetchRegion(id));
-      dispatch(setView("details"));
       dispatch(setCategory(category));
+      onItemClick(id);
     }
 
     return (
       <div
-        className="  RegionLink"
-        onClick={() => handleItemClick(category, region.regionId)}
+        className="link p-1"
+        onClick={() => handleItemClick(category, id)}
       >
         <div>
           <img src={category.icon} className="image" alt={category.name} />
         </div>
-        <div className="details">
-          <div className="title">{region.name}</div>
+        <div className="ms-2 me-2">
+          <div className="title">{title}</div>
         </div>
         <div>
           <img
@@ -38,7 +36,6 @@ const RegionLink = ({ region }) => {
         </div>
       </div>
     );
-
 }
 
-export default RegionLink;
+export default Link;

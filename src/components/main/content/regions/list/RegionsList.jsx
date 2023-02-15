@@ -31,7 +31,7 @@ const RegionsList = () => {
         key={region.regionId}
         id={region.regionId}
         primary={region.name}
-        secondary={region.country.name}
+        secondary={region.country}
         icon={category.icon}
         onItemClick={handleItemClick}
       />

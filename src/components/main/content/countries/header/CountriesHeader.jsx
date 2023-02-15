@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux/es/exports";
-import { setView } from "../../../../reducers/countries/countriesSlice";
+import { setCountriesView } from "../../../../reducers/countries/countriesSlice";
 
 import "./CountriesHeader.css";
 
@@ -10,7 +10,7 @@ const CountriesHeader = ({ menu_items }) => {
   );
 
   const handleMenuClicked = (view) => {
-    dispatch(setView(view));
+    dispatch(setCountriesView(view));
   };
 
   const items = menu_items.map((item) => {

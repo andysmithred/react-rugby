@@ -1,13 +1,17 @@
 .region-dashboard {
     width: 100%;
     height: 100%;
-    border: solid 2px blue;
+    /* border: solid 2px blue; */
+}
+
+.regions-dashboard-block {
+    height: 300px;
 }
 
 /* .cities-dashboard .row2 {
     height: min-content;
 } */
-
+/* 
 .region-dashboard .third {
     width: calc(100%/3);
 }
@@ -18,4 +22,4 @@
 
 .region-dashboard .two-thirds {
     width: calc((100%/3)*2);
-}
+} */

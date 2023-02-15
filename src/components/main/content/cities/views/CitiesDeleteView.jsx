@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
   deleteCity,
-  setView,
+  setCitiesView,
 } from "../../../../reducers/cities/citiesSlice";
 import ItemsHeader from "../../common/ItemsHeader";
 import DeleteCity from "../forms/DeleteCity";
@@ -17,7 +17,7 @@ const CitiesDeleteView = () => {
   };
 
   const handleCancel = () => {
-    dispatch(setView("details"));
+    dispatch(setCitiesView("details"));
   };
 
   return (
@@ -25,7 +25,7 @@ const CitiesDeleteView = () => {
       <ItemsHeader
         menuItems={["Index", "Details"]}
         category={category}
-        setView={setView}
+        setView={setCitiesView}
       />
       <DeleteCity onDelete={handleDelete} onCancel={handleCancel} />
     </div>

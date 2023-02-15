@@ -1,24 +1,34 @@
-import { useDispatch } from "react-redux";
-import { deleteRegion, setView } from "../../../../reducers/regions/regionsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { 
+  deleteRegion, 
+  setRegionsView 
+} from "../../../../reducers/regions/regionsSlice";
+import ItemsHeader from "../../common/ItemsHeader";
 import DeleteRegion from "../forms/DeleteRegion";
-import RegionsHeader from "../header/RegionsHeader";
+
 
 const RegionsDeleteView = () => {
   const dispatch = useDispatch();
+  const category = useSelector((state) =>
+    state.categories.items.find((c) => c.name === "Regions")
+  );
 
-  const handleDeleteRegion = (id) => {
-    console.log(`DELETE: ${id}`);
+  const handleDelete = (id) => {
     dispatch(deleteRegion(id));
   };
 
   const handleCancel = () => {
-    dispatch(setView("details"));
+    dispatch(setRegionsView("details"));
   };
 
   return (
     <div className="d-flex flex-column">
-      <RegionsHeader menu_items={["Index", "Details"]} />
-      <DeleteRegion onDeleteRegion={handleDeleteRegion} onCancel={handleCancel} />
+      <ItemsHeader
+        menuItems={["Index", "Details"]}
+        category={category}
+        setView={setRegionsView}
+      />
+      <DeleteRegion onDelete={handleDelete} onCancel={handleCancel} />
     </div>
   );
 };

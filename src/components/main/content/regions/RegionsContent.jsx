@@ -8,7 +8,7 @@ import "../Content.css";
 
 
 const RegionsContent = () => {
-  const fetching = useSelector((state) => state.regions.fetching);
+  const fetching = useSelector((state) => state.regions.fetchingItems);
   const view = useSelector((state) => state.regions.view);
 
   if (fetching) {
