@@ -14,30 +14,34 @@ const CountryDetails = ({ country }) => {
         </div>
         <div className="col-lg-6 pt-2 country-details-item">
           <div className="label">FULL NAME</div>
-          <div className="value">{country.fullName}</div>
-        </div>
-        <div className="col-lg-6 pt-2 country-details-item">
-          <div className="label">ID</div>
-          <div className="value">{country.countryId}</div>
-        </div>
-        <div className="col-lg-6 pt-2 country-details-item">
-          <div className="label">REGIONS</div>
-          <div className="value">{country.numberRegions}</div>
+          <div className="value">{country.fullName ? country.fullName : "--"}</div>
         </div>
         <div className="col-lg-6 pt-2 country-details-item">
           <div className="label">POPULATION</div>
           <div className="value">
-            {country.population ? country.population : "--"}
+            {country.population ? country.population.toLocaleString("en-GB") : "--"}
           </div>
         </div>
         <div className="col-lg-6 pt-2 country-details-item">
           <div className="label">AREA</div>
-          <div className="value">{country.area ? country.area : "--"}</div>
+          <div className="value">{country.area ? country.area.toLocaleString("en-GB") : "--"}</div> {/*  + " \u33A2" */}
+        </div>
+        <div className="col-lg-6 pt-2 country-details-item">
+          <div className="label">COASTLINE</div>
+          <div className="value">
+            {country.coastline ? country.coastline.toLocaleString("en-GB") + " km" : "--"}
+          </div>
+        </div>
+        <div className="col-lg-6 pt-2 country-details-item">
+          <div className="label">LAND BOUNDRIES</div>
+          <div className="value">
+            {country.landBoundries ? country.landBoundries.toLocaleString("en-GB") + " km" : "--"}
+          </div>
         </div>
         <div className="col-lg-6 pt-2 country-details-item">
           <div className="label">HIGHEST POINT</div>
           <div className="value">
-            {country.highestPoint ? country.highestPoint : "--"}
+            {country.highestPoint ? country.highestPoint.toLocaleString("en-GB") + " m" : "--"}
           </div>
         </div>
         <div className="col-lg-6 pt-2 country-details-item">
@@ -47,23 +51,23 @@ const CountryDetails = ({ country }) => {
           </div>
         </div>
         <div className="col-lg-6 pt-2 country-details-item">
+          <div className="label">ID</div>
+          <div className="value">{country.countryId}</div>
+        </div>
+        <div className="col-lg-6 pt-2 country-details-item">
+          <div className="label">REGIONS</div>
+          <div className="value">{country.numberRegions}</div>
+        </div>
+        
+        
+        
+        <div className="col-lg-6 pt-2 country-details-item">
           <div className="label">ISO Code</div>
           <div className="value">
-            {country.isoCode ? country.isoCode : "--"}
+            {country.isocode ? country.isocode : "--"}
           </div>
         </div>
-        <div className="col-lg-6 pt-2 country-details-item">
-          <div className="label">COASTLINE</div>
-          <div className="value">
-            {country.coastline ? country.coastline : "--"}
-          </div>
-        </div>
-        <div className="col-lg-6 pt-2 country-details-item">
-          <div className="label">LAND BOUNDRIES</div>
-          <div className="value">
-            {country.landBoundries ? country.landBoundries : "--"}
-          </div>
-        </div>
+        
       </div>
     </div>
   );

@@ -15,9 +15,9 @@ import CityLinks from "./CityLinks";
 
 const CitiesDashboard = () => {
   const dispatch = useDispatch();
-  const fetching = useSelector((state) => state.cities.fetchingSelected);
+  const fetching = useSelector((state) => state.cities.fetchingItem);
   const cities = useSelector((state) => state.cities.items);
-  const city = useSelector((state) => state.cities.selected);
+  const city = useSelector((state) => state.cities.item);
 
   useEffect(() => {
     if (!fetching && cities.length > 0 && !city) {

@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { setView } from "../../../../reducers/teams/teamsSlice";
+import { setTeamsView } from "../../../../reducers/teams/teamsSlice";
 
 import ItemsHeader from "../../common/ItemsHeader";
 import ItemsGrid from "../../common/ItemsGrid";
@@ -24,7 +24,7 @@ const TeamsIndexView = () => {
       <ItemsHeader
         menuItems={["Details", "New"]}
         category={category}
-        setView={setView}
+        setView={setTeamsView}
       />
       <ItemsGrid items={items} columnDefs={colDefs} />
     </div>

@@ -3,12 +3,12 @@ import CountriesDetailsView from "./views/CountriesDetailsView";
 import CountriesIndexView from "./views/CountriesIndexView";
 import CountriesNewView from "./views/CountriesNewView";
 import CountriesEditView from "./views/CountriesEditView";
-import CountryDeleteView from "./views/CountryDeleteView";
+import CountriesDeleteView from "./views/CountriesDeleteView";
 
 import "../Content.css";
 
 const CountriesContent = () => {
-  const fetching = useSelector((state) => state.countries.fetching);
+  const fetching = useSelector((state) => state.countries.fetchingItems);
   const view = useSelector((state) => state.countries.view);
 
   if (fetching) {
@@ -22,7 +22,7 @@ const CountriesContent = () => {
         {view === "details" && <CountriesDetailsView />}
         {view === "new" && <CountriesNewView />}
         {view === "edit" && <CountriesEditView />}
-        {view === "delete" && <CountryDeleteView />}
+        {view === "delete" && <CountriesDeleteView />}
       </div>
     </div>
   );

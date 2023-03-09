@@ -1,19 +1,33 @@
-import { useDispatch } from "react-redux/es/exports";
-import CountriesHeader from "../header/CountriesHeader";
-import { addCountry } from "../../../../reducers/countries/countriesSlice";
+import { useDispatch, useSelector } from "react-redux/es/exports";
+
+import {
+  fetchCountries,
+  addCountry,
+  setCountriesView,
+} from "../../../../reducers/countries/countriesSlice";
+import ItemsHeader from "../../common/ItemsHeader";
 import AddCountry from "../forms/AddCountry";
+
 
 const CountriesNewView = () => {
   const dispatch = useDispatch();
+  const category = useSelector((state) =>
+    state.categories.items.find((x) => x.name === "Countries")
+  );
 
-  const handleAddCountry = (country) => {
-    dispatch(addCountry(country));
+  const handleAddItem = (item) => {
+    dispatch(addCountry(item));
+    dispatch(fetchCountries());
   };
 
   return (
     <div className="d-flex flex-column">
-        <CountriesHeader menu_items={["Index"]} />
-        <AddCountry onAddCountry={handleAddCountry} />
+      <ItemsHeader
+        menuItems={["Index", "Details"]}
+        category={category}
+        setView={setCountriesView}
+      />
+      <AddCountry onAdd={handleAddItem} />
     </div>
   );
 };

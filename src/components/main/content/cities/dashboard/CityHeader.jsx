@@ -23,10 +23,6 @@ const CityHeader = ({city}) => {
         alt={city.region.name}
       />
       <div className="ms-3 mt-3 label">{city.name}</div>
-      {/* <div className="ms-auto me-2 mt-3 label">{city.region.name}</div> */}
-
-
-
       <img
         src={icon}
         className="ms-auto me-2 mt-3 complete"

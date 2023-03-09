@@ -9,10 +9,10 @@ import {
 
 const initialState = {
   items: [],
-  fetching: false,
+  fetchingItems: false,
   filter: "",
-  selected: null,
-  fetchingSelected: false,
+  item: null,
+  fetchingItem: false,
   view: "index", // index, details, new, edit, delete
 };
 
@@ -74,37 +74,33 @@ const countriesSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchCountries.pending, (state) => {
-        state.fetching = true;
+        state.fetchingItems = true;
       })
       .addCase(fetchCountries.fulfilled, (state, action) => {
-        state.fetching = false;
+        state.fetchingItems = false;
         state.items = action.payload;
       })
       .addCase(fetchCountry.pending, (state) => {
-        state.fetchingSelected = true;
+        state.fetchingItem = true;
       })
       .addCase(fetchCountry.fulfilled, (state, action) => {
-        state.fetchingSelected = false;
-        state.selected = action.payload;
+        state.fetchingItem = false;
+        state.item = action.payload;
       })
       .addCase(addCountry.fulfilled, (state, action) => {
-        state.items.push(action.payload);
-        state.selected = action.payload;
+        state.item = action.payload;
         state.view = "details";
       })
       .addCase(updateCountry.fulfilled, (state, action) => {
-        state.selected = action.payload;
-        state.items = state.items.map((item) =>
-          item.countryId === action.payload.countryId ? action.payload : item
-        );
+        state.item = action.payload;
         state.view = "details";
       })
       .addCase(deleteCountry.fulfilled, (state, action) => {
         state.items = state.items.filter(
           (item) => item.countryId !== action.payload
         );
-        state.selected = state.items[0];
-        state.view = "details";
+        state.item = null;
+        state.view = "index";
       });
   },
 });

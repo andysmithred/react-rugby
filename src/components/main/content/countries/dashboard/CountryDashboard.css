@@ -1,22 +1,5 @@
 .country-dashboard {
     width: 100%;
     height: 100%;
-    border: solid 2px blue;
-}
-
-/* .cities-dashboard .row2 {
-    height: min-content;
-} */
-
-/* TODO:AS are these needed? */
-.country-dashboard .third {
-    width: calc(100%/3);
-}
-
-.country-dashboard .half {
-    width: calc(100%/2);
-}
-
-.country-dashboard .two-thirds {
-    width: calc((100%/3)*2);
+    /* border: solid 2px blue; */
 }

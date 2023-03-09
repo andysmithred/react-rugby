@@ -15,7 +15,6 @@ const CountriesList = () => {
   const handleFilterTextChange = (filter) => dispatch(filterCountries(filter));
 
   const handleItemClick = (id) => {
-    console.log(`IN >> handleItemClick: ${id}`)
     dispatch(fetchCountry(id));
   };
 
@@ -29,7 +28,7 @@ const CountriesList = () => {
         key={country.countryId}
         id={country.countryId}
         primary={country.name}
-        secondary={country.fullName}
+        secondary={country.fullName ? country.fullName : "--"}
         icon={category.icon}
         onItemClick={handleItemClick}
       />

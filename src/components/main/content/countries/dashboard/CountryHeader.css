@@ -16,3 +16,7 @@
 .country-header .label {
     font-size: 2rem;
 }
+
+.country-header .complete {
+    height: 3vh;
+}

@@ -1,21 +1,23 @@
-import { useDispatch, useSelector } from "react-redux/es/exports";
+import { useDispatch, useSelector } from "react-redux";
 import {
-  fetchCountries,
-  updateCountry,
+  deleteCountry,
   setCountriesView,
 } from "../../../../reducers/countries/countriesSlice";
 import ItemsHeader from "../../common/ItemsHeader";
-import EditCountry from "../forms/EditCountry";
+import DeleteCountry from "../forms/DeleteCountry";
 
-const CountriesEditView = () => {
+const CountriesDeleteView = () => {
   const dispatch = useDispatch();
   const category = useSelector((state) =>
     state.categories.items.find((c) => c.name === "Countries")
   );
 
-  const handleEdit = (updated) => {
-    dispatch(updateCountry(updated));
-    dispatch(fetchCountries());
+  const handleDelete = (id) => {
+    dispatch(deleteCountry(id));
+  };
+
+  const handleCancel = () => {
+    dispatch(setCountriesView("details"));
   };
 
   return (
@@ -25,9 +27,9 @@ const CountriesEditView = () => {
         category={category}
         setView={setCountriesView}
       />
-      <EditCountry onEdit={handleEdit} />
+      <DeleteCountry onDelete={handleDelete} onCancel={handleCancel} />
     </div>
   );
 };
 
-export default CountriesEditView;
+export default CountriesDeleteView;

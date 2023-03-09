@@ -65,33 +65,31 @@ export const citiesSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchCities.pending, (state) => {
-        console.log("fetchCities.pending")
-        state.fetching = true;
+        state.fetchingItems = true;
       })
       .addCase(fetchCities.fulfilled, (state, action) => {
-        console.log("fetchCities.fulfilled")
-        state.fetching = false;
+        state.fetchingItems = false;
         state.items = action.payload;
       })
       .addCase(fetchCity.pending, (state) => {
-        state.fetchingSelected = true;
+        state.fetchingItem = true;
       })
       .addCase(fetchCity.fulfilled, (state, action) => {
-        state.fetchingSelected = false;
-        state.selected = action.payload;
+        state.fetchingItem = false;
+        state.item = action.payload;
       })
       .addCase(addCity.fulfilled, (state, action) => {
         state.view = "index";
       })
       .addCase(updateCity.fulfilled, (state, action) => {
-        state.selected = action.payload;
+        state.item = action.payload;
         state.view = "details";
       })
       .addCase(deleteCity.fulfilled, (state, action) => {
         state.items = state.items.filter(
           (item) => item.cityId !== action.payload
         );
-        state.selected = null;
+        state.item = null;
         state.view = "details";
       });
   },

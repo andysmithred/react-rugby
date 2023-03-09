@@ -24,6 +24,7 @@ export const categoriesList = [
   {
     name: "Countries",
     icon: getFullPathImage("country"),
+    label: "Countries"
   },
   {
     name: "Matches",

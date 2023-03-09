@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
 
-const DeleteCountry = ({ onDeleteCountry, onCancel }) => {
-  const country = useSelector((state) => state.countries.selected);
+const DeleteCountry = ({ onDelete, onCancel }) => {
+  const country = useSelector((state) => state.countries.item);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    onDeleteCountry(country.countryId);
+    onDelete(country.countryId);
   };
 
   if (country.numberRegions > 0) {
@@ -34,6 +34,10 @@ const DeleteCountry = ({ onDeleteCountry, onCancel }) => {
         <div className="col-lg-6 pt-2 city-details-item">
           <div className="label">FULL NAME</div>
           <div className="value">{country.fullName}</div>
+        </div>
+        <div className="col-lg-6 pt-2 city-details-item">
+          <div className="label">ISO CODE</div>
+          <div className="value">{country.isocode}</div>
         </div>
       </div>
       <hr></hr>

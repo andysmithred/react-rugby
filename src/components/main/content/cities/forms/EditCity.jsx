@@ -8,7 +8,7 @@ import InputCheckbox from "../../common/inputs/InputCheckbox";
 
 const EditCity = ({ onEdit }) => {
   const regions = useSelector((state) => state.regions.items);
-  const city = useSelector((state) => state.cities.selected);
+  const city = useSelector((state) => state.cities.item);
 
   const [name, setName] = useState(city.name);
   const [population, setPopulation] = useState(city.population);

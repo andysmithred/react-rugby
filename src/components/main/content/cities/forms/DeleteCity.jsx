@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 
 const DeleteCity = ({ onDelete, onCancel }) => {
-  const city = useSelector((state) => state.cities.selected);
+  const city = useSelector((state) => state.cities.item);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
