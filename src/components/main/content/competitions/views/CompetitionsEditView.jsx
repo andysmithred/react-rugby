@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import {
   updateCompetition,
-  setView,
+  setCompetitionsView,
 } from "../../../../reducers/competitions/competitionsSlice";
 import ItemsHeader from "../../common/ItemsHeader";
 import EditCompetition from "../forms/EditCompetition";
@@ -21,7 +21,7 @@ const CompetitionsEditView = () => {
       <ItemsHeader
         menuItems={["Index", "Details"]}
         category={category}
-        setView={setView}
+        setView={setCompetitionsView}
       />
       <EditCompetition onEdit={handleEdit} />
     </div>

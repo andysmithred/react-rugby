@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 import CoachHeader from "./CoachHeader";
 import CoachDetails from "./CoachDetails";
+import CoachLinks from "./CoachLinks";
 
 import "./CoachDashboard.css";
 
@@ -19,6 +20,7 @@ const CoachDashboard = () => {
     return (
       <div className="pt-1 ps-1 coach-dashboard">
         <CoachHeader item={item} />
+        <CoachLinks coach={item} />   
         <div className="row">
           <div className="col-lg-4">
             <CoachDetails item={item} />

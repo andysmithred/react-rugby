@@ -1,6 +1,10 @@
 import { useDispatch, useSelector } from "react-redux/es/exports";
 
-import { addCompetition, setView } from "../../../../reducers/competitions/competitionsSlice";
+import { 
+  fetchCompetitions,
+  addCompetition, 
+  setCompetitionsView
+} from "../../../../reducers/competitions/competitionsSlice";
 import ItemsHeader from "../../common/ItemsHeader";
 import AddCompetition from "../forms/AddCompetition";
 
@@ -12,6 +16,7 @@ const CompetitionsNewView = () => {
 
   const handleAddItem = (item) => {
     dispatch(addCompetition(item));
+    dispatch(fetchCompetitions())
   };
 
   return (
@@ -19,7 +24,7 @@ const CompetitionsNewView = () => {
       <ItemsHeader
         menuItems={["Index"]}
         category={category}
-        setView={setView}
+        setView={setCompetitionsView}
       />
       <AddCompetition onAdd={handleAddItem} />
     </div>

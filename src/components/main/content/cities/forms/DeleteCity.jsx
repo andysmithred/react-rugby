@@ -8,6 +8,14 @@ const DeleteCity = ({ onDelete, onCancel }) => {
     onDelete(city.cityId);
   };
 
+  if (city.players.length > 0 || city.schools.length > 0 || city.stadia.length > 0) {
+    return (
+      <div>
+        There are items associated with this city. Please delete them first.
+      </div>
+    );
+  }
+
   return (
     <form className="m-2 w-50" onSubmit={handleFormSubmit}>
       <div className="m-2">

@@ -16,3 +16,7 @@
 .coach-header .label {
     font-size: 2rem;
 }
+
+.coach-header .complete {
+    height: 3vh;
+}

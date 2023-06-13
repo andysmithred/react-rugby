@@ -1,5 +1,8 @@
 import "./ListTileSimple.css";
 
+// TODO:AS -> remove there is ListSmallTile
+
+
 const ListTileSimple = ({ id, label, icon, onItemClick }) => {
   return (
     <div

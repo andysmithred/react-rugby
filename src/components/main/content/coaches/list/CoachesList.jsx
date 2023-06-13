@@ -31,7 +31,7 @@ const CoachesList = () => {
         key={item.coachId}
         id={item.coachId}
         primary={item.name}
-        secondary={item.city.name}
+        secondary={item.city}
         icon={category.icon}
         onItemClick={handleItemClick}
       />

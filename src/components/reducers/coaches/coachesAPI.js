@@ -1,46 +1,17 @@
-export const fetchCoachesAPI = async () => {
-  const response = await fetch("https://localhost:7213/api/Coaches");
-  const data = await response.json();
-  return data;
-};
+import {
+  fetchAPI,
+  addItemAPI,
+  updateItemAPI,
+  deleteItemAPI,
+} from "../../utils/utils";
 
-export const fetchCoachAPI = async (id) => {
-  const response = await fetch(`https://localhost:7213/api/Coaches/${id}`);
-  const data = await response.json();
-  return data;
-};
-
-export const addCoachAPI = async (item) => {
-  const response = await fetch("https://localhost:7213/api/Coaches", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(item),
-  });
-
-  const data = await response.json();
-  return data;
-};
-
-export const updateCoachAPI = async (updatedItem) => {
-  const response = await fetch(
-    `https://localhost:7213/api/Coaches/${updatedItem.coachId}`,
-    {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedItem),
-    }
-  );
-
-  const data = await response.json();
-  return data;
-};
-
-export const deleteCoachAPI = async (id) => {
-  await fetch(`https://localhost:7213/api/Coaches/${id}`, {
-    method: "delete",
-  });
-};
+export const fetchCoachesAPI = async () =>
+  fetchAPI("https://localhost:7213/api/Coaches");
+export const fetchCoachAPI = async (id) =>
+  fetchAPI(`https://localhost:7213/api/Coaches/${id}`);
+export const addCoachAPI = async (item) =>
+  addItemAPI(item, "https://localhost:7213/api/Coaches");
+export const updateCoachAPI = async (item) =>
+  updateItemAPI(item, `https://localhost:7213/api/Coaches/${item.coachId}`);
+export const deleteCoachAPI = async (id) =>
+  deleteItemAPI(`https://localhost:7213/api/Coaches/${id}`);

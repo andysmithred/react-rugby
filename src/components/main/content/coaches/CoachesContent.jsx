@@ -7,8 +7,6 @@ import CoachesEditView from "./views/CoachesEditView";
 import CoachesDeleteView from "./views/CoachesDeleteView";
 
 
-// import SchoolsDeleteView from "./views/SchoolsDeleteView";
-
 import "../Content.css";
 
 const CoachesContent = () => {

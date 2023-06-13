@@ -1,11 +1,15 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector } from "react-redux/es/exports";
+import InputString from "../../common/inputs/InputString";
+import InputSelect from "../../common/inputs/InputSelect";
+import InputCheckbox from "../../common/inputs/InputCheckbox";
+
 
 const AddCoach = ({ onAdd }) => {
   const cities = useSelector((state) => state.cities.items);
 
-  let cityOptions = [];
-  cityOptions = cities.map((x) => {
+  let options = [];
+  options = cities.map((x) => {
     return (
       <option key={x.cityId} value={x.cityId}>
         {x.name}
@@ -16,6 +20,7 @@ const AddCoach = ({ onAdd }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [cityId, setCityId] = useState(cities[0].cityId);
+  const [complete, setComplete] = useState(false);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -24,6 +29,7 @@ const AddCoach = ({ onAdd }) => {
         firstName,
         lastName,
         cityId,
+        complete
     };
 
     onAdd(item);
@@ -35,40 +41,25 @@ const AddCoach = ({ onAdd }) => {
         <h5>Add Coach</h5>
       </div>
       <hr></hr>
-      <div className="input-group mb-3 input-group-sm">
-        <span className="input-group-text bg-dark text-white w-25">
-          First Name
-        </span>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Add First Name"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-      </div>
-      <div className="input-group mb-3 input-group-sm">
-        <span className="input-group-text bg-dark text-white w-25">
-          Last Name
-        </span>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Add Last Name"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-        />
-      </div>
-      <div className="input-group mb-3 input-group-sm">
-        <span className="input-group-text bg-dark text-white w-25">City</span>
-        <select
-          value={cityId}
-          className="form-control"
-          onChange={(e) => setCityId(parseInt(e.target.value))}
-        >
-          {cityOptions}
-        </select>
-      </div>
+      <InputString
+        label="First Name"
+        input={firstName}
+        setInput={setFirstName}
+        placeholder="Add First Name"
+      />
+      <InputString
+        label="Last Name"
+        input={lastName}
+        setInput={setLastName}
+        placeholder="Add Last Name"
+      />
+      <InputSelect
+        label="City"
+        input={cityId}
+        setInput={setCityId}
+        options={options}
+      />
+      <InputCheckbox label="Complete" input={complete} setInput={setComplete} />
       <hr></hr>
       <input
         type="submit"

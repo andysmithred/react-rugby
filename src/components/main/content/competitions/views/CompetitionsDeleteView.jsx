@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
   deleteCompetition,
-  setView,
+  setCompetitionsView,
 } from "../../../../reducers/competitions/competitionsSlice";
 import ItemsHeader from "../../common/ItemsHeader";
 import DeleteCompetition from "../forms/DeleteCompetition";
@@ -18,7 +18,7 @@ const CompetitionDeleteView = () => {
   };
 
   const handleCancel = () => {
-    dispatch(setView("details"));
+    dispatch(setCompetitionsView("details"));
   };
 
   return (
@@ -26,7 +26,7 @@ const CompetitionDeleteView = () => {
       <ItemsHeader
         menuItems={["Index", "Edit", "Delete"]}
         category={category}
-        setView={setView}
+        setView={setCompetitionsView}
       />
       <DeleteCompetition onDelete={handleDelete} onCancel={handleCancel} />
     </div>

@@ -33,7 +33,7 @@ const CitiesDashboard = () => {
     return (
       <div className="pt-1 ps-1 cities-dashboard">
         <CityHeader city={city} />
-        <CityLinks city={city} />       
+        <CityLinks city={city} />
         <div className="row">
           <div className="col-lg-3">
             <CityDetails city={city} />

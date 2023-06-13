@@ -1,25 +1,32 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   deleteCoach,
-  setView,
+  setCoachesView,
 } from "../../../../reducers/coaches/coachesSlice";
-import CoachesHeader from "../header/CoachesHeader";
+import ItemsHeader from "../../common/ItemsHeader";
 import DeleteCoach from "../forms/DeleteCoach";
 
 const CoachesDeleteView = () => {
   const dispatch = useDispatch();
+  const category = useSelector((state) =>
+    state.categories.items.find((c) => c.name === "Coaches")
+  );
 
   const handleDelete = (id) => {
     dispatch(deleteCoach(id));
   };
 
   const handleCancel = () => {
-    dispatch(setView("details"));
+    dispatch(setCoachesView("details"));
   };
 
   return (
     <div className="d-flex flex-column">
-      <CoachesHeader menu_items={["Index", "Details"]} />
+      <ItemsHeader
+        menuItems={["Index", "Details"]}
+        category={category}
+        setView={setCoachesView}
+      />
       <DeleteCoach onDelete={handleDelete} onCancel={handleCancel} />
     </div>
   );

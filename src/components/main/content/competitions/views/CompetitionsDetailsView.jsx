@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { setView } from "../../../../reducers/competitions/competitionsSlice";
+import { setCompetitionsView } from "../../../../reducers/competitions/competitionsSlice";
 
 import ItemsHeader from "../../common/ItemsHeader";
 import CompetitionsList from "../list/CompetitionsList";
@@ -15,9 +15,9 @@ const CompetitionsDetailsView = () => {
   return (
     <div className="d-flex flex-column content-view">
       <ItemsHeader
-        menuItems={["Index", "Edit", "Delete"]}
+        menuItems={["Index", "New", "Edit", "Delete"]}
         category={category}
-        setView={setView}
+        setView={setCompetitionsView}
       />
 
       <div className="d-flex flex-row content-view-content">
