@@ -24,9 +24,7 @@ const CoachDashboard = () => {
         <div className="row">
           <div className="col-lg-4">
             <CoachDetails item={item} />
-            {/* <CityDetails city={city} /> */}
           </div>
-          {/* <div className="col-lg-1" style={{"border": "solid 2px red"}}></div> */}
         </div>
       </div>
     );

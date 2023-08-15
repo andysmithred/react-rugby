@@ -19,7 +19,6 @@ const CompetitionsDetailsView = () => {
         category={category}
         setView={setCompetitionsView}
       />
-
       <div className="d-flex flex-row content-view-content">
         <CompetitionsList />
         <CompetitionDashboard />

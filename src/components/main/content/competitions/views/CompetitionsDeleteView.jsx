@@ -24,7 +24,7 @@ const CompetitionDeleteView = () => {
   return (
     <div className="d-flex flex-column">
       <ItemsHeader
-        menuItems={["Index", "Edit", "Delete"]}
+        menuItems={["Index", "Details"]}
         category={category}
         setView={setCompetitionsView}
       />

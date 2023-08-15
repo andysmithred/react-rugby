@@ -1,0 +1,17 @@
+.item-header-complete {
+    width: 100%;
+    border-bottom: solid 1px darkslategrey;
+}
+
+.item-header-complete .image {
+    height: 6vh;
+    border-radius: 5px;
+}
+
+.item-header-complete .label {
+    font-size: 2rem;
+}
+
+.item-header-complete .complete {
+    height: 3vh;
+}

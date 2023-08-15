@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import {
+  fetchCompetitions,
   updateCompetition,
   setCompetitionsView,
 } from "../../../../reducers/competitions/competitionsSlice";
@@ -14,6 +15,7 @@ const CompetitionsEditView = () => {
 
   const handleEdit = (updated) => {
     dispatch(updateCompetition(updated));
+    dispatch(fetchCompetitions());
   };
 
   return (

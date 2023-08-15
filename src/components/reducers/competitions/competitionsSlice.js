@@ -19,7 +19,7 @@ const initialState = {
 // Thunks;
 
 export const fetchCompetitions = createAsyncThunk(
-  "competitions/fetchPlayers",
+  "competitions/fetchCompetitions",
   async () => {
     const response = await fetchCompetitionsAPI();
     return response;
@@ -90,22 +90,15 @@ export const competitionsSlice = createSlice({
       .addCase(addCompetition.fulfilled, (state, action) => {
         state.view = "index";
       })
-
-      // TODO:AS
       .addCase(updateCompetition.fulfilled, (state, action) => {
         state.item = action.payload;
-        state.items = state.items.map((item) =>
-          item.competitionId === action.payload.competitionId
-            ? action.payload
-            : item
-        );
         state.view = "details";
       })
       .addCase(deleteCompetition.fulfilled, (state, action) => {
         state.items = state.items.filter(
           (item) => item.competitionId !== action.payload
         );
-        state.item = state.items[0];
+        state.item = null;
         state.view = "details";
       });
   },

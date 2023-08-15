@@ -19,7 +19,8 @@ const CompetitionsIndexView = () => {
   const colDefs = [
     { field: "competitionId" },
     { field: "name" },
-    { field: "matches" }
+    { field: "matches" },
+    { field: "complete" }
   ];
 
   const rowClickedHandler = (data) => {

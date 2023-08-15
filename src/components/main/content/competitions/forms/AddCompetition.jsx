@@ -1,12 +1,14 @@
 import { useState } from "react";
 import InputString from "../../common/inputs/InputString";
+import InputCheckbox from "../../common/inputs/InputCheckbox";
 
 const AddCompetition = ({ onAdd }) => {
   const [name, setName] = useState("");
+  const [complete, setComplete] = useState(false);
   
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const item = { name };
+    const item = { name, complete };
     onAdd(item);
   };
 
@@ -22,6 +24,7 @@ const AddCompetition = ({ onAdd }) => {
         setInput={setName}
         placeholder="Add Name"
       />
+      <InputCheckbox label="Complete" input={complete} setInput={setComplete} />
       <hr></hr>
       <input
         type="submit"
