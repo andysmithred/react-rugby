@@ -88,8 +88,7 @@ const countriesSlice = createSlice({
         state.item = action.payload;
       })
       .addCase(addCountry.fulfilled, (state, action) => {
-        state.item = action.payload;
-        state.view = "details";
+        state.view = "index";
       })
       .addCase(updateCountry.fulfilled, (state, action) => {
         state.item = action.payload;

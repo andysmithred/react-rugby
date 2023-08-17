@@ -1,15 +1,25 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
 import CountryHeader from "./CountryHeader";
 import CountryDetails from "./CountryDetails";
 import RegionsDetailsList from "../../regions/list/RegionsDetailsList";
 import TeamsDetailsList from "../../teams/list/TeamsDetailsList";
+import { fetchCountry } from "../../../../reducers/countries/countriesSlice";
 
 import "./CountryDashboard.css";
 
 
 const CountryDashboard = () => {
-  const fetching = useSelector((state) => state.countries.fetchingItems);
+  const dispatch = useDispatch();
+  const countries = useSelector((state) => state.countries.items);
+  const fetching = useSelector((state) => state.countries.fetchingItem);
   const country = useSelector((state) => state.countries.item);
+
+  useEffect(() => {
+    if ((!fetching) && (countries.length > 0) && (!country)) {
+      dispatch(fetchCountry(countries[0].countryId));
+    }
+  }, [dispatch, fetching, countries, country]);
 
   if (fetching) {
     return <div>LOADING...</div>;
