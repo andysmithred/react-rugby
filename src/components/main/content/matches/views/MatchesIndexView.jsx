@@ -1,5 +1,5 @@
-import { useSelector } from "react-redux";
-import { setView } from "../../../../reducers/matches/matchesSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { setMatchesView, fetchMatch } from "../../../../reducers/matches/matchesSlice";
 
 import ItemsHeader from "../../common/ItemsHeader";
 import ItemsGrid from "../../common/ItemsGrid";
@@ -7,10 +7,17 @@ import ItemsGrid from "../../common/ItemsGrid";
 import "../../Content.css";
 
 const MatchesIndexView = () => {
+  const dispatch = useDispatch();
   const items = useSelector((state) => state.matches.items);
   const category = useSelector((state) =>
     state.categories.items.find((c) => c.name === "Matches")
   );
+
+  const rowClickedHandler = (data) => {
+    dispatch(fetchMatch(data.matchId));
+    dispatch(setMatchesView("details"));
+  }
+
 
   const dateFormatter = (params) => {
     var myDate = new Date(params.data.date);
@@ -27,13 +34,13 @@ const MatchesIndexView = () => {
 
   const colDefs = [
     { headerName: "Id", field: "matchId" },
-    { field: "title" },
+    { field: "label" },
     { field: "date", valueFormatter: dateFormatter },
-    { field: "season.year" },
-    { field: "stadium.name" },
-    { field: "competition.name" },
+    { field: "season" },
+    { field: "stadium" },
+    { field: "competition" },
     { field: "attendance", valueFormatter: numberFormatter },
-    { field: "referee.name" },
+    { field: "referee" },
     { field: "complete" },
   ];
 
@@ -42,9 +49,9 @@ const MatchesIndexView = () => {
       <ItemsHeader
         menuItems={["Details", "New"]}
         category={category}
-        setView={setView}
+        setView={setMatchesView}
       />
-      <ItemsGrid items={items} columnDefs={colDefs} />
+      <ItemsGrid items={items} columnDefs={colDefs} onRowClick={rowClickedHandler}  />
     </div>
   );
 };
